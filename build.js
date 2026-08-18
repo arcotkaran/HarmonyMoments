@@ -1,0 +1,145 @@
+/* ====================================================================
+   HARMONY MOMENTS — static page builder
+   --------------------------------------------------------------------
+   One layout + one file per page = every page shares the same header,
+   footer, analytics and mobile bar. Change something once, it applies
+   everywhere.
+
+   USAGE:   node build.js
+
+   Each page lives in src/pages/<name>.html and starts with a JSON
+   front-matter comment, e.g.
+
+     <!--{
+       "id": "proposals",                     <- analytics page_id
+       "path": "occasions/proposal-picnic-sydney/",
+       "title": "...", "description": "..."
+     }-->
+     <section>...page content...</section>
+
+   Tokens available inside page content:
+     {{PARTIAL:contact}}   inject a shared block from src/partials/
+   ==================================================================== */
+'use strict';
+
+const fs = require('fs');
+const path = require('path');
+
+const ROOT_DIR   = __dirname;
+const SRC        = path.join(ROOT_DIR, 'src');
+const SITE_URL   = 'https://harmonymoments.com.au/';
+
+/* Bump these when styles.css / script.js change, so browsers don't
+   serve a stale cached copy. */
+const CSS_VERSION = '23';
+const JS_VERSION  = '16';
+
+const layout = fs.readFileSync(path.join(SRC, 'layout.html'), 'utf8');
+
+/* ---------- helpers ---------------------------------------------- */
+
+function readPartial(name) {
+  return fs.readFileSync(path.join(SRC, 'partials', name + '.html'), 'utf8');
+}
+
+function parsePage(file) {
+  const raw = fs.readFileSync(file, 'utf8');
+  const m = raw.match(/^\s*<!--(\{[\s\S]*?\})-->/);
+  if (!m) throw new Error('Missing JSON front-matter in ' + file);
+  let meta;
+  try { meta = JSON.parse(m[1]); }
+  catch (e) { throw new Error('Bad JSON front-matter in ' + file + ': ' + e.message); }
+  return { meta, body: raw.slice(m[0].length).trim() };
+}
+
+/* Absolute site-root paths ("/styles.css") are used everywhere rather
+   than relative "../../" — they work identically at any folder depth,
+   so a page can be moved without breaking its assets. */
+const ROOT = '/';
+
+/* On sub-pages, in-page anchors pointing at sections that only exist on
+   the HOME page must jump back to it. Anchors for sections that DO exist
+   on this page stay local. */
+function fixAnchors(html, pagePath, ownSections) {
+  if (!pagePath) return html;                       /* home page */
+  return html.replace(/href="#([a-z0-9-]+)"/gi, (full, id) => {
+    if (id === 'top' || ownSections.has(id)) return full;
+    return 'href="/#' + id + '"';
+  });
+}
+
+/* ---------- build ------------------------------------------------- */
+
+const pageFiles = fs.readdirSync(path.join(SRC, 'pages'))
+  .filter(f => f.endsWith('.html'))
+  .map(f => path.join(SRC, 'pages', f));
+
+const built = [];
+
+pageFiles.forEach(file => {
+  const { meta, body } = parsePage(file);
+  const pagePath = meta.path || '';                 /* '' = site root */
+
+  /* inject shared partials */
+  let content = body.replace(/\{\{PARTIAL:([a-z-]+)\}\}/g, (_, n) => readPartial(n));
+
+  /* which section ids exist on this page (so anchors resolve locally) */
+  const ownSections = new Set(
+    [...content.matchAll(/<section[^>]*id="([a-z0-9-]+)"/gi)].map(m => m[1])
+  );
+
+  let html = layout
+    .replace('{{BODY}}', content)
+    .replace(/\{\{TITLE\}\}/g, meta.title)
+    .replace(/\{\{DESCRIPTION\}\}/g, meta.description)
+    .replace(/\{\{CANONICAL\}\}/g, SITE_URL + pagePath)
+    .replace(/\{\{PAGE_ID\}\}/g, meta.id)
+    /* meta.schema may be one object or an array of them; each becomes its
+       own JSON-LD block. Keeping it per-page means e.g. FAQ markup only
+       appears on the page that actually shows an FAQ. */
+    .replace(/\{\{SCHEMA\}\}/g, meta.schema
+      ? [].concat(meta.schema).map(s =>
+          '  <script type="application/ld+json">\n' +
+          JSON.stringify(s, null, 2) + '\n  </script>').join('\n')
+      : '')
+    .replace(/\{\{CSSV\}\}/g, CSS_VERSION)
+    .replace(/\{\{JSV\}\}/g, JS_VERSION)
+    .replace(/\{\{ROOT\}\}/g, ROOT);
+
+  /* Make bare asset references absolute so they resolve from any depth.
+     srcset is included so <picture> sources work on sub-pages too. */
+  html = html.replace(
+    /(src|href|srcset)="(?!https?:|mailto:|tel:|#|\/)([a-z0-9._-]+\.(?:jpg|png|webp|svg|css|js))/gi,
+    (_, attr, f) => attr + '="' + ROOT + f);
+
+  html = fixAnchors(html, pagePath, ownSections);
+
+  const outDir = path.join(ROOT_DIR, pagePath);
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
+
+  built.push({ path: pagePath, id: meta.id, priority: meta.priority || '0.8' });
+  console.log('  ✓ /' + pagePath + '  (page_id: ' + meta.id + ')');
+});
+
+/* ---------- sitemap ----------------------------------------------- */
+
+const today = new Date().toISOString().slice(0, 10);
+const sitemap =
+  '<?xml version="1.0" encoding="UTF-8"?>\n' +
+  '<!-- Generated by build.js — do not edit by hand -->\n' +
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+  built
+    .sort((a, b) => a.path.length - b.path.length)
+    .map(p =>
+      '  <url>\n' +
+      '    <loc>' + SITE_URL + p.path + '</loc>\n' +
+      '    <lastmod>' + today + '</lastmod>\n' +
+      '    <changefreq>monthly</changefreq>\n' +
+      '    <priority>' + (p.path === '' ? '1.0' : p.priority) + '</priority>\n' +
+      '  </url>').join('\n') +
+  '\n</urlset>\n';
+
+fs.writeFileSync(path.join(ROOT_DIR, 'sitemap.xml'), sitemap, 'utf8');
+console.log('\n  ✓ sitemap.xml (' + built.length + ' urls)');
+console.log('\nBuilt ' + built.length + ' pages.');

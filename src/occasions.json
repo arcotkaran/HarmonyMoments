@@ -1,0 +1,44 @@
+[
+  {
+    "nav": "Proposals",
+    "slug": "proposal-picnic-sydney",
+    "id": "proposals",
+    "image": "perfect-proposal.jpg",
+    "price": "From $200"
+  },
+  {
+    "nav": "Birthdays",
+    "slug": "birthday-picnic-sydney",
+    "id": "birthdays",
+    "image": "perfect-birthday.jpg",
+    "price": "From $300"
+  },
+  {
+    "nav": "Anniversaries",
+    "slug": "anniversary-picnic-sydney",
+    "id": "anniversaries",
+    "image": "perfect-anniversary.jpg",
+    "price": "From $200"
+  },
+  {
+    "nav": "Baby Showers",
+    "slug": "baby-shower-picnic-sydney",
+    "id": "babyshowers",
+    "image": "perfect-babyshower.jpg",
+    "price": "From $300"
+  },
+  {
+    "nav": "Bridal Showers",
+    "slug": "bridal-shower-picnic-sydney",
+    "id": "bridalshowers",
+    "image": "perfect-bridal.jpg",
+    "price": "From $300"
+  },
+  {
+    "nav": "Date Nights",
+    "slug": "romantic-picnic-date-sydney",
+    "id": "datenights",
+    "image": "package-intimate.jpg",
+    "price": "From $200"
+  }
+]

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <!-- ================================================================
+       HARMONY MOMENTS · Luxury picnic & celebration styling · Sydney
+       ================================================================
+       Single-page, mobile-first, lead-generation site.
+       Stack: hand-coded HTML + CSS + vanilla JS (no build step).
+       Deploy: drop this folder onto Netlify / Vercel as-is.
+
+       IMAGE FILES (place next to this file, exact names):
+         hero.jpg                 16:9  hero, golden-hour picnic for two
+         package-intimate.jpg     4:3   The Intimate card
+         package-celebration.jpg  4:3   The Celebration card
+         package-athome.jpg       4:3   At-Home Hosting card
+         gallery-1.jpg .. gallery-6.jpg   1:1 gallery squares
+         about.jpg               4:5   About section portrait
+         og-image.jpg            wide  social share banner (meta only)
+         logo.png                       brand logo (header + footer)
+         favicon.png                    browser tab icon
+       If an image file is missing, script.js swaps in a branded
+       sage-to-cream gradient placeholder automatically, so the page
+       never shows a broken image.
+       ================================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F3EC">
+
+  <!-- ===================== SEO: TITLE + DESCRIPTION ===================== -->
+  <title>Terms &amp; Conditions | Harmony Moments Sydney</title>
+  <meta name="description" content="Booking terms, payment schedule, cancellation and wet weather policy for Harmony Moments luxury picnic styling in Sydney.">
+
+  <!-- ===================== SEO: OPEN GRAPH + TWITTER =====================
+       NOTE: og:image and og:url should be ABSOLUTE URLs once deployed.
+       Replace https://harmonymoments.com.au with your live domain. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Harmony Moments">
+  <meta property="og:title" content="Terms &amp; Conditions | Harmony Moments Sydney">
+  <meta property="og:description" content="Booking terms, payment schedule, cancellation and wet weather policy for Harmony Moments luxury picnic styling in Sydney.">
+  <meta property="og:url" content="https://harmonymoments.com.au/terms/"><!-- REPLACE with real link -->
+  <meta property="og:image" content="https://harmonymoments.com.au/og-image.jpg"><!-- REPLACE with real link -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Terms &amp; Conditions | Harmony Moments Sydney">
+  <meta name="twitter:description" content="Booking terms, payment schedule, cancellation and wet weather policy for Harmony Moments luxury picnic styling in Sydney.">
+  <meta name="twitter:image" content="https://harmonymoments.com.au/og-image.jpg"><!-- REPLACE with real link -->
+
+  <!-- ===================== FAVICON (file provided by owner) ===================== -->
+  <!-- Canonical: tells Google this is the one true URL for this page,
+       so www/non-www or ?utm= variants don't split ranking signals. -->
+  <link rel="canonical" href="https://harmonymoments.com.au/terms/">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- ===================== FONTS: Fraunces (headings) + Nunito Sans (body) ===================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- ===================== STYLES ===================== -->
+  <link rel="stylesheet" href="/styles.css?v=23">
+
+  <!-- ================================================================
+       ANALYTICS + ADS HOOKS
+       The dataLayer below is LIVE from day one, so every enquiry click
+       is recorded even before any tag is installed. Uncomment each
+       block and paste your IDs when campaigns are ready.
+       ================================================================ -->
+  <!-- ============ GOOGLE ANALYTICS 4 (live) ============
+       Base tag. Loaded async so it never blocks rendering. gtag() is
+       defined inline, so it always exists even if an ad-blocker stops
+       the external script — script.js calls it safely either way. -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6NQ8PB2GM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q6NQ8PB2GM');
+  </script>
+
+  <!-- ============ GOOGLE ADS TAG ============ -->
+  <script>
+    gtag('config', 'AW-18341896172');
+  </script>
+
+  <!-- ============ META / INSTAGRAM PIXEL (uncomment + replace PIXEL_ID in BOTH places) ============
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1" alt=""></noscript>
+  ============================================================================================= -->
+
+  <!-- ===================== SEO: JSON-LD LOCAL BUSINESS ===================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Harmony Moments",
+    "description": "Luxury picnic and celebration styling across Sydney — intimate dates, small birthdays and at-home hosting, designed and set up by hand.",
+    "url": "https://harmonymoments.com.au",
+    "image": "https://harmonymoments.com.au/og-image.jpg",
+    "logo": "https://harmonymoments.com.au/logo.png",
+    "email": "parakhedipalie@gmail.com",
+    "priceRange": "$$",
+    "founder": { "@type": "Person", "name": "Dipali" },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sydney",
+      "addressRegion": "NSW",
+      "addressCountry": "AU"
+    },
+    "telephone": "+61468820725",
+    "areaServed": { "@type": "City", "name": "Sydney" },
+    "sameAs": ["https://www.instagram.com/har_mony_moments"],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "2",
+      "bestRating": "5"
+    },
+    "review": [{
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Rohan Mahajan" },
+      "datePublished": "2026-08-05",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "A big thank you to Dipali from Harmony Moments! The picnic setup was even more beautiful than I had imagined and honestly exceeded all my expectations. Every little detail was perfect and she made us feel so special throughout the whole experience. Everything was stress-free and I couldn't have asked for a better setup."
+    }, {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Shallu Bali" },
+      "datePublished": "2026-07-27",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "I reached out to Dipali at Harmony Moments to help organise a surprise proposal picnic for my brother-in-law, and I couldn't be happier with the experience. Dipali is incredibly organised, responsive, and genuinely passionate about creating memorable experiences. The proposal setup was absolutely stunning and exceeded all our expectations."
+    }]
+  }
+  </script>
+
+</head>
+
+<body id="top" data-page-id="terms_page">
+
+  <!-- Accessibility: keyboard users can skip straight to content -->
+  <a class="skip-link" href="/#main">Skip to content</a>
+
+  <!-- ================================================================
+       HEADER / NAV  (sticky; translucent cream so the sage logo stays
+       legible while scrolling over the hero photo)
+       ================================================================ -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand" aria-label="Harmony Moments, go to home page">
+        <img src="/logo.png" alt="Harmony Moments logo" class="brand-logo">
+      </a>
+
+      <!-- Desktop links; becomes a dropdown panel on mobile -->
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <ul class="nav-links">
+          <li class="nav-item-desktop-only"><a href="/#experiences" class="nav-link">Experiences</a></li>
+          <li><a href="/#occasions" class="nav-link">Occasions</a></li>
+          <li><a href="/#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="/#about" class="nav-link">About</a></li>
+          <li><a href="/journal/" class="nav-link">Journal</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li class="nav-cta-item">
+            <a href="#contact" class="btn btn-clay btn-sm" data-enquiry-cta data-cta-location="nav">Enquire</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Hamburger (mobile only) -->
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+<section class="section legal" id="terms">
+      <div class="container">
+        <div class="section-head fade-in">
+          <p class="eyebrow">The fine print</p>
+          <h1 class="section-title">Terms &amp; Conditions</h1>
+          <p class="section-intro">These terms apply to all bookings with Harmony Moments. They exist so we both know exactly what to expect &mdash; and so your day runs smoothly.</p>
+        </div>
+
+        <div class="legal-body fade-in">
+          <p class="legal-updated">Last updated: August 2026</p>
+
+          <h2>1. About us</h2>
+          <p>&ldquo;Harmony Moments&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo; and &ldquo;our&rdquo; refers to Harmony Moments, a picnic and event styling service operating across Greater Sydney, NSW. &ldquo;You&rdquo; and &ldquo;the client&rdquo; refers to the person making the booking. By paying a booking deposit you accept these terms.</p>
+
+          <h2>2. Bookings &amp; payment</h2>
+          <p>A booking is only confirmed once we have received your booking deposit and sent you written confirmation. Dates are not held without a deposit.</p>
+          <ul>
+            <li><strong>Booking deposit &mdash; $100, non-refundable.</strong> Payable on booking to secure your date. This is deducted from your total.</li>
+            <li><strong>50% of the total &mdash; due 7 days before</strong> your event date.</li>
+            <li><strong>Remaining balance &mdash; due 48 hours before</strong> your event date.</li>
+          </ul>
+          <p>All setups must be paid in full before we begin styling. We reserve the right not to proceed with a setup where payment has not been received in full by the due time, and the booking deposit will not be refunded.</p>
+          <p>Prices are quoted in Australian dollars. Add-ons (fresh florals, curated catering, cakes, signage and similar) are quoted separately and are subject to the same schedule.</p>
+
+          <h2>3. Cancellations &amp; refunds</h2>
+          <ul>
+            <li><strong>More than 7 days before:</strong> all payments refunded except the $100 booking deposit.</li>
+            <li><strong>3&ndash;7 days before:</strong> 50% of the total is payable and non-refundable.</li>
+            <li><strong>Less than 48 hours before:</strong> the full amount is payable and non-refundable.</li>
+          </ul>
+          <p>This reflects that by those points we have committed time, purchased perishables such as fresh florals and catering, and turned away other bookings for your date.</p>
+
+          <h2>4. Rescheduling</h2>
+          <p>You may reschedule once, free of charge, if you give us more than 7 days&rsquo; notice and we have availability on your new date. Rescheduling inside 7 days is subject to availability and may incur additional costs where perishable items have already been purchased. Your booking deposit transfers to the new date.</p>
+
+          <h2>5. Wet weather</h2>
+          <p>Sydney weather is unpredictable, and we plan for it. If the forecast is unsuitable, we will contact you the day before to agree a plan. Your options are:</p>
+          <ul>
+            <li>Move the setup to a covered or indoor location (including your home), at no extra charge where the new location is within our normal service area;</li>
+            <li>Reschedule to another available date at no extra charge; or</li>
+            <li>Proceed as planned, at your election and risk.</li>
+          </ul>
+          <p>If you choose to proceed and conditions then affect the setup, no refund is available. If you cancel outright due to weather rather than rescheduling, the cancellation terms in clause 3 apply. We may also relocate or postpone a setup where we reasonably consider conditions unsafe for our team, your guests or our equipment.</p>
+
+          <h2>6. Your responsibilities</h2>
+          <ul>
+            <li>Ensuring the location is accessible to us at the agreed setup time, including any building, gate or venue access.</li>
+            <li>Obtaining any permit, venue permission or council approval required for your chosen location. We are happy to advise, but responsibility rests with you.</li>
+            <li>Remaining with the setup for its duration. Items must not be left unattended.</li>
+            <li>The conduct of you and your guests, and the reasonable care of our items while they are in your possession.</li>
+          </ul>
+
+          <h2>7. Our equipment</h2>
+          <p>All furniture, styling pieces, linen, décor and other items remain the property of Harmony Moments at all times and are supplied on a hire basis for the duration of your booking.</p>
+          <p>You are responsible for the replacement cost of any item that is lost, stolen, burnt, broken or damaged beyond normal wear during your booking, and for any additional cleaning required beyond ordinary use. We will provide an itemised cost and payment is due within 7 days.</p>
+
+          <h2>8. Duration &amp; pack-down</h2>
+          <p>Unless agreed otherwise in writing, setups run for the period stated in your booking confirmation. We will return at the agreed pack-down time. Additional time may be available on request and will be charged accordingly. Where a setup runs beyond the agreed time without prior agreement, additional charges may apply.</p>
+
+          <h2>9. Food, drink &amp; allergies</h2>
+          <p>Where catering is arranged as an add-on, please advise all dietary requirements and allergies in writing at the time of booking. While we take care with preparation and sourcing, we cannot guarantee an allergen-free environment. You are responsible for advising your guests. You are welcome to supply your own food and beverages; responsibility for anything you supply rests with you, including compliance with any alcohol restrictions applying at your chosen location.</p>
+
+          <h2>10. Photography &amp; marketing</h2>
+          <p>We may photograph or film our setups before guests arrive, and may use those images of the styling for our website, social media and marketing.</p>
+          <p>We will not publish images in which you or your guests are identifiable without your permission. If you would prefer we do not photograph your setup at all, simply tell us in writing before your event and we will respect that.</p>
+
+          <h2>11. Liability</h2>
+          <p>To the extent permitted by law, Harmony Moments is not liable for: injury, loss or damage arising from your or your guests&rsquo; use of the setup; personal belongings left at the location; weather, wildlife, or the acts of third parties and members of the public; or circumstances beyond our reasonable control including extreme weather, road closures, illness, or venue and council restrictions.</p>
+          <p>Where we are unable to deliver a setup due to such circumstances, our liability is limited to refunding amounts you have paid for that booking.</p>
+          <p>Nothing in these terms excludes, restricts or modifies any guarantee, right or remedy you have under the <em>Australian Consumer Law</em> that cannot lawfully be excluded.</p>
+
+          <h2>12. Privacy</h2>
+          <p>We collect only the details needed to plan and deliver your booking &mdash; typically your name, contact details, occasion and location. We do not sell your information or share it with third parties except where necessary to deliver your booking, such as with a caterer or florist. You may request a copy of, or deletion of, your details at any time.</p>
+
+          <h2>13. Changes to these terms</h2>
+          <p>We may update these terms from time to time. The terms that apply to your booking are those published on the date your booking is confirmed.</p>
+
+          <h2>14. Getting in touch</h2>
+          <p>Questions about any of this are welcome &mdash; we would much rather talk it through beforehand.</p>
+          <p><a href="/#contact">Contact us</a> and we will come back to you within a day.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="section-head fade-in">
+          <p class="eyebrow">Message us</p>
+          <h2 class="section-title">Let&rsquo;s create your moment.</h2>
+          <p class="section-intro">Leave your name and number and we&rsquo;ll call you back to talk through your occasion — usually within a day.</p>
+        </div>
+
+        <div class="contact-actions fade-in">
+          <a href="tel:+61468820725" class="contact-btn" data-enquiry-method="call">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>
+            <span>Call</span>
+          </a>
+          <a href="https://wa.me/61468820725?text=Hi%20Harmony%20Moments%2C%20I%27d%20love%20to%20enquire%20about%20a%20picnic%20setup%20%F0%9F%8C%B8" target="_blank" rel="noopener" class="contact-btn" data-enquiry-method="whatsapp">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.4L3 21l4.7-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c-.4.9-.3 2.2.6 3.6 1 1.5 2.1 2.4 3.6 2.9 1 .3 1.9 0 2.3-.7"/></svg>
+            <span>WhatsApp</span>
+          </a>
+          <a href="mailto:parakhedipalie@gmail.com?cc=arcot.karan%40gmail.com&amp;subject=Picnic%20enquiry%20-%20Harmony%20Moments&amp;body=Hi%20Dipali%2C%0D%0A%0D%0AI%27d%20love%20to%20enquire%20about%20a%20picnic%20setup.%0D%0A%0D%0AOccasion%3A%20%0D%0APreferred%20date%3A%20%0D%0ANumber%20of%20guests%3A%20%0D%0ALocation%20(park%20or%20at%20home)%3A%20%0D%0A%0D%0AThanks!" class="contact-btn" data-enquiry-method="email">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>
+            <span>Email</span>
+          </a>
+        </div>
+
+        <div class="enquiry-wrap fade-in">
+          <p class="enquiry-heading">Or leave your number and we&rsquo;ll call you:</p>
+
+          <form id="enquiry-form" class="enquiry-form" name="enquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+            <!-- form-name tells Netlify which form when submitting via AJAX -->
+            <input type="hidden" name="form-name" value="enquiry">
+            <!-- honeypot: hidden from humans, filled by bots -->
+            <p class="enquiry-honeypot" hidden>
+              <label>Don&rsquo;t fill this out if you&rsquo;re human: <input name="bot-field"></label>
+            </p>
+
+            <div class="enquiry-row">
+              <label class="enquiry-label" for="enquiry-name">Your name</label>
+              <input id="enquiry-name" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="enquiry-row">
+              <label class="enquiry-label" for="enquiry-phone">Phone</label>
+              <input id="enquiry-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+            </div>
+
+            <button type="submit" class="btn btn-clay enquiry-submit" data-enquiry-method="form">Request a callback</button>
+            <p class="enquiry-error" hidden role="alert">Something went wrong sending your enquiry. Please try again, or message us instead.</p>
+          </form>
+
+          <div class="enquiry-thanks" hidden role="status" aria-live="polite">
+            <h3>Thank you &mdash; enquiry received.</h3>
+            <p>I&rsquo;ll be in touch within a day. If it&rsquo;s urgent, message me on WhatsApp or Instagram.</p>
+          </div>
+        </div>
+
+        <p class="urgency contact-urgency fade-in">Weekend dates are limited — reserve your preferred sunset before it fills.</p>
+      </div>
+    </section>
+
+</main>
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <a href="/" aria-label="Harmony Moments, go to home page">
+        <img src="/logo.png" alt="Harmony Moments logo" class="footer-logo">
+      </a>
+      <p class="footer-tagline">Harmony Moments — Luxury picnic &amp; celebration styling · Sydney, Australia</p>
+
+            <nav class="footer-links" aria-label="Occasions">
+        <a href="/occasions/proposal-picnic-sydney/">Proposals</a>
+        <a href="/occasions/birthday-picnic-sydney/">Birthdays</a>
+        <a href="/occasions/anniversary-picnic-sydney/">Anniversaries</a>
+        <a href="/occasions/baby-shower-picnic-sydney/">Baby Showers</a>
+        <a href="/occasions/bridal-shower-picnic-sydney/">Bridal Showers</a>
+        <a href="/occasions/romantic-picnic-date-sydney/">Date Nights</a>
+        <a href="/journal/">Journal</a>
+        <a href="/terms/">Terms &amp; Conditions</a>
+      </nav>
+
+      <ul class="footer-info">
+        <li>Sydney NSW, Australia</li>
+        <li>Open 7 days · by appointment</li>
+        <li>Serving all of Greater Sydney</li>
+      </ul>
+
+      <div class="footer-icons">
+        <a href="https://www.instagram.com/har_mony_moments" target="_blank" rel="noopener" class="icon-btn" aria-label="Harmony Moments on Instagram" data-enquiry-method="instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://wa.me/61468820725?text=Hi%20Harmony%20Moments%2C%20I%27d%20love%20to%20enquire%20about%20a%20picnic%20setup%20%F0%9F%8C%B8" target="_blank" rel="noopener" class="icon-btn" aria-label="Message Harmony Moments on WhatsApp" data-enquiry-method="whatsapp">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.4L3 21l4.7-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c-.4.9-.3 2.2.6 3.6 1 1.5 2.1 2.4 3.6 2.9 1 .3 1.9 0 2.3-.7"/></svg>
+        </a>
+        <a href="mailto:parakhedipalie@gmail.com?cc=arcot.karan%40gmail.com&amp;subject=Picnic%20enquiry%20-%20Harmony%20Moments&amp;body=Hi%20Dipali%2C%0D%0A%0D%0AI%27d%20love%20to%20enquire%20about%20a%20picnic%20setup.%0D%0A%0D%0AOccasion%3A%20%0D%0APreferred%20date%3A%20%0D%0ANumber%20of%20guests%3A%20%0D%0ALocation%20(park%20or%20at%20home)%3A%20%0D%0A%0D%0AThanks!" class="icon-btn" aria-label="Email Harmony Moments" data-enquiry-method="email">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>
+        </a>
+      </div>
+
+      <p class="footer-copy">&copy; 2026 Harmony Moments. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ================================================================
+       MOBILE STICKY ACTION BAR
+       ================================================================ -->
+  <div class="mobile-cta-bar" role="region" aria-label="Quick contact">
+    <a href="tel:+61468820725" class="mobile-cta-icon" aria-label="Call Harmony Moments" data-enquiry-method="call">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>
+    </a>
+    <a href="https://wa.me/61468820725?text=Hi%20Harmony%20Moments%2C%20I%27d%20love%20to%20enquire%20about%20a%20picnic%20setup%20%F0%9F%8C%B8" target="_blank" rel="noopener" class="mobile-cta-icon mobile-cta-whatsapp" aria-label="Message Harmony Moments on WhatsApp" data-enquiry-method="whatsapp">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.4L3 21l4.7-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c-.4.9-.3 2.2.6 3.6 1 1.5 2.1 2.4 3.6 2.9 1 .3 1.9 0 2.3-.7"/></svg>
+    </a>
+    <a href="#contact" class="btn btn-clay mobile-cta-btn" data-enquiry-cta data-cta-location="sticky_bar">Enquire</a>
+  </div>
+
+
+  <!-- ===================== BEHAVIOUR ===================== -->
+  <script src="/script.js?v=16" defer></script>
+</body>
+</html>

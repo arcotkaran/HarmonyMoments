@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <!-- ================================================================
+       HARMONY MOMENTS · Luxury picnic & celebration styling · Sydney
+       ================================================================
+       Single-page, mobile-first, lead-generation site.
+       Stack: hand-coded HTML + CSS + vanilla JS (no build step).
+       Deploy: drop this folder onto Netlify / Vercel as-is.
+
+       IMAGE FILES (place next to this file, exact names):
+         hero.jpg                 16:9  hero, golden-hour picnic for two
+         package-intimate.jpg     4:3   The Intimate card
+         package-celebration.jpg  4:3   The Celebration card
+         package-athome.jpg       4:3   At-Home Hosting card
+         gallery-1.jpg .. gallery-6.jpg   1:1 gallery squares
+         about.jpg               4:5   About section portrait
+         og-image.jpg            wide  social share banner (meta only)
+         logo.png                       brand logo (header + footer)
+         favicon.png                    browser tab icon
+       If an image file is missing, script.js swaps in a branded
+       sage-to-cream gradient placeholder automatically, so the page
+       never shows a broken image.
+       ================================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F3EC">
+
+  <!-- ===================== SEO: TITLE + DESCRIPTION ===================== -->
+  <title>The Best Picnic Spots in Sydney | Harmony Moments Journal</title>
+  <meta name="description" content="Our five favourite picnic spots in Sydney — Centennial Park, Balmoral Beach, Mrs Macquarie's Point, Bradleys Head and Parsley Bay — with tips on when to go.">
+
+  <!-- ===================== SEO: OPEN GRAPH + TWITTER =====================
+       NOTE: og:image and og:url should be ABSOLUTE URLs once deployed.
+       Replace https://harmonymoments.com.au with your live domain. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Harmony Moments">
+  <meta property="og:title" content="The Best Picnic Spots in Sydney | Harmony Moments Journal">
+  <meta property="og:description" content="Our five favourite picnic spots in Sydney — Centennial Park, Balmoral Beach, Mrs Macquarie's Point, Bradleys Head and Parsley Bay — with tips on when to go.">
+  <meta property="og:url" content="https://harmonymoments.com.au/journal/best-picnic-spots-in-sydney/"><!-- REPLACE with real link -->
+  <meta property="og:image" content="https://harmonymoments.com.au/og-image.jpg"><!-- REPLACE with real link -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Best Picnic Spots in Sydney | Harmony Moments Journal">
+  <meta name="twitter:description" content="Our five favourite picnic spots in Sydney — Centennial Park, Balmoral Beach, Mrs Macquarie's Point, Bradleys Head and Parsley Bay — with tips on when to go.">
+  <meta name="twitter:image" content="https://harmonymoments.com.au/og-image.jpg"><!-- REPLACE with real link -->
+
+  <!-- ===================== FAVICON (file provided by owner) ===================== -->
+  <!-- Canonical: tells Google this is the one true URL for this page,
+       so www/non-www or ?utm= variants don't split ranking signals. -->
+  <link rel="canonical" href="https://harmonymoments.com.au/journal/best-picnic-spots-in-sydney/">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- ===================== FONTS: Fraunces (headings) + Nunito Sans (body) ===================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- ===================== STYLES ===================== -->
+  <link rel="stylesheet" href="/styles.css?v=23">
+
+  <!-- ================================================================
+       ANALYTICS + ADS HOOKS
+       The dataLayer below is LIVE from day one, so every enquiry click
+       is recorded even before any tag is installed. Uncomment each
+       block and paste your IDs when campaigns are ready.
+       ================================================================ -->
+  <!-- ============ GOOGLE ANALYTICS 4 (live) ============
+       Base tag. Loaded async so it never blocks rendering. gtag() is
+       defined inline, so it always exists even if an ad-blocker stops
+       the external script — script.js calls it safely either way. -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6NQ8PB2GM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q6NQ8PB2GM');
+  </script>
+
+  <!-- ============ GOOGLE ADS TAG ============ -->
+  <script>
+    gtag('config', 'AW-18341896172');
+  </script>
+
+  <!-- ============ META / INSTAGRAM PIXEL (uncomment + replace PIXEL_ID in BOTH places) ============
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1" alt=""></noscript>
+  ============================================================================================= -->
+
+  <!-- ===================== SEO: JSON-LD LOCAL BUSINESS ===================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Harmony Moments",
+    "description": "Luxury picnic and celebration styling across Sydney — intimate dates, small birthdays and at-home hosting, designed and set up by hand.",
+    "url": "https://harmonymoments.com.au",
+    "image": "https://harmonymoments.com.au/og-image.jpg",
+    "logo": "https://harmonymoments.com.au/logo.png",
+    "email": "parakhedipalie@gmail.com",
+    "priceRange": "$$",
+    "founder": { "@type": "Person", "name": "Dipali" },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sydney",
+      "addressRegion": "NSW",
+      "addressCountry": "AU"
+    },
+    "telephone": "+61468820725",
+    "areaServed": { "@type": "City", "name": "Sydney" },
+    "sameAs": ["https://www.instagram.com/har_mony_moments"],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "2",
+      "bestRating": "5"
+    },
+    "review": [{
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Rohan Mahajan" },
+      "datePublished": "2026-08-05",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "A big thank you to Dipali from Harmony Moments! The picnic setup was even more beautiful than I had imagined and honestly exceeded all my expectations. Every little detail was perfect and she made us feel so special throughout the whole experience. Everything was stress-free and I couldn't have asked for a better setup."
+    }, {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Shallu Bali" },
+      "datePublished": "2026-07-27",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "I reached out to Dipali at Harmony Moments to help organise a surprise proposal picnic for my brother-in-law, and I couldn't be happier with the experience. Dipali is incredibly organised, responsive, and genuinely passionate about creating memorable experiences. The proposal setup was absolutely stunning and exceeded all our expectations."
+    }]
+  }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The best picnic spots in Sydney",
+  "description": "Five of the best picnic spots around Sydney, with a note on when to go and what each one does best.",
+  "image": "https://harmonymoments.com.au/gallery-1.jpg",
+  "datePublished": "2026-07-03",
+  "author": {
+    "@type": "Person",
+    "name": "Dipali"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Harmony Moments",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://harmonymoments.com.au/logo.png"
+    }
+  },
+  "mainEntityOfPage": "https://harmonymoments.com.au/journal/best-picnic-spots-in-sydney/"
+}
+  </script>
+</head>
+
+<body id="top" data-page-id="journal_picnic_spots">
+
+  <!-- Accessibility: keyboard users can skip straight to content -->
+  <a class="skip-link" href="/#main">Skip to content</a>
+
+  <!-- ================================================================
+       HEADER / NAV  (sticky; translucent cream so the sage logo stays
+       legible while scrolling over the hero photo)
+       ================================================================ -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand" aria-label="Harmony Moments, go to home page">
+        <img src="/logo.png" alt="Harmony Moments logo" class="brand-logo">
+      </a>
+
+      <!-- Desktop links; becomes a dropdown panel on mobile -->
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <ul class="nav-links">
+          <li class="nav-item-desktop-only"><a href="/#experiences" class="nav-link">Experiences</a></li>
+          <li><a href="/#occasions" class="nav-link">Occasions</a></li>
+          <li><a href="#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="/#about" class="nav-link">About</a></li>
+          <li><a href="/journal/" class="nav-link">Journal</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li class="nav-cta-item">
+            <a href="#contact" class="btn btn-clay btn-sm" data-enquiry-cta data-cta-location="nav">Enquire</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Hamburger (mobile only) -->
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+<section class="journal section" id="post">
+      <div class="container">
+        <p class="journal-breadcrumb"><a href="/journal/">&larr; Back to the journal</a></p>
+        <article class="journal-article fade-in">
+          <figure class="frame frame-landscape journal-cover" data-label="Golden hour picnic in a Sydney park">
+            <img src="/gallery-1.webp" alt="Styled picnic table with florals, candles and cushions in a leafy Sydney park at golden hour" loading="lazy">
+          </figure>
+
+          <div class="journal-body">
+            <p class="journal-meta">
+              <time datetime="2026-07-03">July 2026</time>
+              <span aria-hidden="true">&middot;</span>
+              <span>4&nbsp;min read</span>
+            </p>
+
+            <h1 class="journal-title">The best picnic spots in Sydney.</h1>
+
+            <p class="journal-lede">Sydney is spoiled for beautiful places to lay down a blanket. Whether you&rsquo;re planning a proposal, a birthday or a slow weekend afternoon with friends, here are five of our favourite picnic spots around the city — with a note on when to go and what each one does best.</p>
+
+            <ol class="journal-list">
+              <li>
+                <h4>Centennial Park <em>— best for groups &amp; lazy afternoons.</em></h4>
+                <p>The city&rsquo;s grand old picnic ground: wide open lawns, towering Moreton Bay figs and plenty of shade to choose from. There&rsquo;s easy parking off Grand Drive and room to spread out, so it suits bigger groups beautifully. Head in during the late afternoon, when the light turns gold through the trees.</p>
+              </li>
+              <li>
+                <h4>Balmoral Beach <em>— best for proposals &amp; sunsets.</em></h4>
+                <p>The grassy reserve behind the sand looks straight across Middle Harbour, and the dusk light here is hard to beat. It&rsquo;s calmer than the eastern beaches, with cafés close by for a coffee run. On weekends, arrive before 5pm to claim a good patch of grass.</p>
+              </li>
+              <li>
+                <h4>Mrs Macquarie&rsquo;s Point <em>— best for that iconic Sydney backdrop.</em></h4>
+                <p>Opera House and Harbour Bridge in a single frame, wrapped in Botanic Garden greenery. It&rsquo;s popular for good reason, so midweek or early in the day is your friend. Unbeatable for milestone moments you&rsquo;ll want to remember in photos.</p>
+              </li>
+              <li>
+                <h4>Bradleys Head <em>— best for romance &amp; quiet.</em></h4>
+                <p>A leafy headland a short stroll from Taronga, with bushland behind you and the open harbour in front. It feels tucked away and unhurried — ideal for an intimate date or an anniversary. Wear comfortable shoes for the gentle walk in.</p>
+              </li>
+              <li>
+                <h4>Parsley Bay <em>— best for families &amp; shelter.</em></h4>
+                <p>A calm little cove in Vaucluse with its own pretty suspension bridge, sheltered water and shady lawns. It&rsquo;s protected from the wind and soft underfoot, which makes it a relaxed, easy choice for family gatherings and little ones.</p>
+              </li>
+            </ol>
+
+            <p class="journal-signoff">Found your spot? Tell us the occasion and we&rsquo;ll bring the setup to you — beautifully styled, set up and packed down, so all you have to do is turn up.</p>
+
+            <a href="#contact" class="btn btn-clay" data-enquiry-cta data-cta-location="journal">Enquire Now</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta-band" id="cta-band">
+      <div class="container fade-in">
+        <p class="cta-band-title">Found your spot?</p>
+        <a href="#contact" class="btn btn-clay" data-enquiry-cta data-cta-location="journal_post_band">Enquire Now</a>
+        <p class="urgency urgency-on-dark">Weekend dates are limited — reserve your preferred sunset before it fills.</p>
+      </div>
+    </section>
+
+
+    <section class="testimonials section" id="reviews">
+      <div class="container">
+        <div class="section-head fade-in">
+          <p class="eyebrow">From our clients</p>
+          <h2 class="section-title">Kind words</h2>
+        </div>
+        <figure class="review-card fade-in">
+          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="review-quote">
+            <p>Dipali is incredibly organised, responsive, and genuinely passionate about creating memorable experiences. The proposal setup was absolutely stunning and exceeded all our expectations.</p>
+          </blockquote>
+          <figcaption class="review-meta">
+            <span class="review-name">Shallu Bali</span>
+            <span class="review-source">Google review &middot; Proposal picnic</span>
+          </figcaption>
+        </figure>
+        <div class="review-cta fade-in">
+          <a href="https://g.page/r/CW8bTJ-bWpwtEAE" target="_blank" rel="noopener" class="btn btn-outline" data-review="read">Read our Google reviews</a>
+          <a href="https://g.page/r/CW8bTJ-bWpwtEAE/review" target="_blank" rel="noopener" class="btn btn-outline" data-review="write">Leave us a review</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="section-head fade-in">
+          <p class="eyebrow">Message us</p>
+          <h2 class="section-title">Let&rsquo;s create your moment.</h2>
+          <p class="section-intro">Leave your name and number and we&rsquo;ll call you back to talk through your occasion — usually within a day.</p>
+        </div>
+
+        <div class="contact-actions fade-in">
+          <a href="tel:+61468820725" class="contact-btn" data-enquiry-method="call">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>
+            <span>Call</span>
+          </a>
+          <a href="https://wa.me/61468820725?text=Hi%20Harmony%20Moments%2C%20I%27d%20love%20to%20enquire%20about%20a%20picnic%20setup%20%F0%9F%8C%B8" target="_blank" rel="noopener" class="contact-btn" data-enquiry-method="whatsapp">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.4L3 21l4.7-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c-.4.9-.3 2.2.6 3.6 1 1.5 2.1 2.4 3.6 2.9 1 .3 1.9 0 2.3-.7"/></svg>
+            <span>WhatsApp</span>
+          </a>
+          <a href="mailto:parakhedipalie@gmail.com?cc=arcot.karan%40gmail.com&amp;subject=Picnic%20enquiry%20-%20Harmony%20Moments&amp;body=Hi%20Dipali%2C%0D%0A%0D%0AI%27d%20love%20to%20enquire%20about%20a%20picnic%20setup.%0D%0A%0D%0AOccasion%3A%20%0D%0APreferred%20date%3A%20%0D%0ANumber%20of%20guests%3A%20%0D%0ALocation%20(park%20or%20at%20home)%3A%20%0D%0A%0D%0AThanks!" class="contact-btn" data-enquiry-method="email">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>
+            <span>Email</span>
+          </a>
+        </div>
+
+        <div class="enquiry-wrap fade-in">
+          <p class="enquiry-heading">Or leave your number and we&rsquo;ll call you:</p>
+
+          <form id="enquiry-form" class="enquiry-form" name="enquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+            <!-- form-name tells Netlify which form when submitting via AJAX -->
+            <input type="hidden" name="form-name" value="enquiry">
+            <!-- honeypot: hidden from humans, filled by bots -->
+            <p class="enquiry-honeypot" hidden>
+              <label>Don&rsquo;t fill this out if you&rsquo;re human: <input name="bot-field"></label>
+            </p>
+
+            <div class="enquiry-row">
+              <label class="enquiry-label" for="enquiry-name">Your name</label>
+              <input id="enquiry-name" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="enquiry-row">
+              <label class="enquiry-label" for="enquiry-phone">Phone</label>
+              <input id="enquiry-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+            </div>
+
+            <button type="submit" class="btn btn-clay enquiry-submit" data-enquiry-method="form">Request a callback</button>
+            <p class="enquiry-error" hidden role="alert">Something went wrong sending your enquiry. Please try again, or message us instead.</p>
+          </form>
+
+          <div class="enquiry-thanks" hidden role="status" aria-live="polite">
+            <h3>Thank you &mdash; enquiry received.</h3>
+            <p>I&rsquo;ll be in touch within a day. If it&rsquo;s urgent, message me on WhatsApp or Instagram.</p>
+          </div>
+        </div>
+
+        <p class="urgency contact-urgency fade-in">Weekend dates are limited — reserve your preferred sunset before it fills.</p>
+      </div>
+    </section>
+
+</main>
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <a href="/" aria-label="Harmony Moments, go to home page">
+        <img src="/logo.png" alt="Harmony Moments logo" class="footer-logo">
+      </a>
+      <p class="footer-tagline">Harmony Moments — Luxury picnic &amp; celebration styling · Sydney, Australia</p>
+
+            <nav class="footer-links" aria-label="Occasions">
+        <a href="/occasions/proposal-picnic-sydney/">Proposals</a>
+        <a href="/occasions/birthday-picnic-sydney/">Birthdays</a>
+        <a href="/occasions/anniversary-picnic-sydney/">Anniversaries</a>
+        <a href="/occasions/baby-shower-picnic-sydney/">Baby Showers</a>
+        <a href="/occasions/bridal-shower-picnic-sydney/">Bridal Showers</a>
+        <a href="/occasions/romantic-picnic-date-sydney/">Date Nights</a>
+        <a href="/journal/">Journal</a>
+        <a href="/terms/">Terms &amp; Conditions</a>
+      </nav>
+
+      <ul class="footer-info">
+        <li>Sydney NSW, Australia</li>
+        <li>Open 7 days · by appointment</li>
+        <li>Serving all of Greater Sydney</li>
+      </ul>
+
+      <div class="footer-icons">
+        <a href="https://www.instagram.com/har_mony_moments" target="_blank" rel="noopener" class="icon-btn" aria-label="Harmony Moments on Instagram" data-enquiry-method="instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://wa.me/61468820725?text=Hi%20Harmony%20Moments%2C%20I%27d%20love%20to%20enquire%20about%20a%20picnic%20setup%20%F0%9F%8C%B8" target="_blank" rel="noopener" class="icon-btn" aria-label="Message Harmony Moments on WhatsApp" data-enquiry-method="whatsapp">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.4L3 21l4.7-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c-.4.9-.3 2.2.6 3.6 1 1.5 2.1 2.4 3.6 2.9 1 .3 1.9 0 2.3-.7"/></svg>
+        </a>
+        <a href="mailto:parakhedipalie@gmail.com?cc=arcot.karan%40gmail.com&amp;subject=Picnic%20enquiry%20-%20Harmony%20Moments&amp;body=Hi%20Dipali%2C%0D%0A%0D%0AI%27d%20love%20to%20enquire%20about%20a%20picnic%20setup.%0D%0A%0D%0AOccasion%3A%20%0D%0APreferred%20date%3A%20%0D%0ANumber%20of%20guests%3A%20%0D%0ALocation%20(park%20or%20at%20home)%3A%20%0D%0A%0D%0AThanks!" class="icon-btn" aria-label="Email Harmony Moments" data-enquiry-method="email">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>
+        </a>
+      </div>
+
+      <p class="footer-copy">&copy; 2026 Harmony Moments. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ================================================================
+       MOBILE STICKY ACTION BAR
+       ================================================================ -->
+  <div class="mobile-cta-bar" role="region" aria-label="Quick contact">
+    <a href="tel:+61468820725" class="mobile-cta-icon" aria-label="Call Harmony Moments" data-enquiry-method="call">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>
+    </a>
+    <a href="https://wa.me/61468820725?text=Hi%20Harmony%20Moments%2C%20I%27d%20love%20to%20enquire%20about%20a%20picnic%20setup%20%F0%9F%8C%B8" target="_blank" rel="noopener" class="mobile-cta-icon mobile-cta-whatsapp" aria-label="Message Harmony Moments on WhatsApp" data-enquiry-method="whatsapp">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.4L3 21l4.7-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c-.4.9-.3 2.2.6 3.6 1 1.5 2.1 2.4 3.6 2.9 1 .3 1.9 0 2.3-.7"/></svg>
+    </a>
+    <a href="#contact" class="btn btn-clay mobile-cta-btn" data-enquiry-cta data-cta-location="sticky_bar">Enquire</a>
+  </div>
+
+
+  <!-- ===================== BEHAVIOUR ===================== -->
+  <script src="/script.js?v=16" defer></script>
+</body>
+</html>
