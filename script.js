@@ -294,6 +294,37 @@
     instagram: 'AW-18341896172/WRl4CICcgtYcEOy_jKpE',
     email:     'AW-18341896172/axZQCKSZ5tscEOy_jKpE'
   };
+
+  /* ---- OPTIONAL: per-page conversion actions ------------------------
+     A conversion hit has no "page" field. The name Tag Assistant shows
+     ("WhatsApp Click") belongs to the conversion ACTION, and every
+     action has its own label that Google generates when you create it.
+     So to see "WhatsApp – Date Night" you create that action in Ads
+     (Goals > Conversions > New > Website > set up manually), copy the
+     label out of its tag snippet, and paste it below.
+
+     Blank means "use the generic channel label above", so this can be
+     filled in one page or one channel at a time with no risk — nothing
+     breaks while a slot is empty.
+
+     Only worth doing where you actually want the split. The same
+     breakdown is already available without any of this, under
+     Campaigns > Landing pages, segmented by conversion action. */
+  var ADS_CONV_BY_PAGE = {
+    proposal_page:      { whatsapp: '', call: '', email: '', form: '', instagram: '' },
+    date_night_page:    { whatsapp: '', call: '', email: '', form: '', instagram: '' },
+    anniversary_page:   { whatsapp: '', call: '', email: '', form: '', instagram: '' },
+    birthday_page:      { whatsapp: '', call: '', email: '', form: '', instagram: '' },
+    baby_shower_page:   { whatsapp: '', call: '', email: '', form: '', instagram: '' },
+    bridal_shower_page: { whatsapp: '', call: '', email: '', form: '', instagram: '' }
+  };
+
+  /* Page-specific label if one has been filled in, else the shared one. */
+  function convLabel(kind) {
+    var perPage = ADS_CONV_BY_PAGE[PAGE_ID];
+    if (perPage && perPage[kind]) return perPage[kind];
+    return ADS_CONV[kind];
+  }
   /* Relative worth of a lead from each page, in AUD. A Google Ads
      conversion carries no "which page" field — the name shown in Tag
      Assistant comes from the Ads UI, not from here — so VALUE is how we
@@ -329,7 +360,7 @@
     lastConv[kind] = now;
     try {
       window.gtag('event', 'conversion', {
-        send_to:  ADS_CONV[kind],
+        send_to:  convLabel(kind),
         value:    PAGE_VALUE[PAGE_ID] || DEFAULT_VALUE,
         currency: 'AUD'
       });
@@ -385,17 +416,24 @@
            form submit button (which also carries data-enquiry-method).
            These links open in a new tab, so the event has time to send. */
         if (method === 'whatsapp' || method === 'instagram' || method === 'email' || method === 'call') {
-          /* GA4: a distinctly-named event per channel (e.g.
-             contact_click_whatsapp) so you can tell at a glance WHICH
-             button was pressed, plus device — a tel:/mailto: click on
-             desktop often does nothing, so device explains dead ends. */
+          /* GA4: name the event after BOTH page and channel, e.g.
+             contact_click_date_night_page_whatsapp — so a WhatsApp click
+             on Date Nights is distinguishable from one on Proposals
+             without opening a report. Google Ads cannot carry the page
+             on a conversion hit, but GA4 can, so this is where the
+             per-page picture actually lives.
+             Device is included because a tel:/mailto: click on desktop
+             often does nothing — it explains dead ends. */
           var device = isProbablyMobile() ? 'mobile' : 'desktop';
-          gaEvent('contact_click_' + method, {
-            method: method, device: device, send_to: 'G-Q6NQ8PB2GM'
+          gaEvent('contact_click_' + PAGE_ID + '_' + method, {
+            page: PAGE_ID, method: method, device: device,
+            send_to: 'G-Q6NQ8PB2GM'
           });
-          /* Keep the generic event too, so totals stay comparable. */
+          /* Keep the generic event too, so cross-page channel totals stay
+             comparable — segment it by the method or page parameter. */
           gaEvent('contact_click', {
-            method: method, device: device, send_to: 'G-Q6NQ8PB2GM'
+            page: PAGE_ID, method: method, device: device,
+            send_to: 'G-Q6NQ8PB2GM'
           });
 
           /* Google Ads conversion — one per contact channel
