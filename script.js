@@ -294,10 +294,46 @@
     instagram: 'AW-18341896172/WRl4CICcgtYcEOy_jKpE',
     email:     'AW-18341896172/axZQCKSZ5tscEOy_jKpE'
   };
+  /* Relative worth of a lead from each page, in AUD. A Google Ads
+     conversion carries no "which page" field — the name shown in Tag
+     Assistant comes from the Ads UI, not from here — so VALUE is how we
+     tell Ads that a proposal enquiry is worth more than a date-night one.
+     Without it every conversion counts as 1 and the bidding chases
+     whichever occasion is cheapest to convert.
+
+     These are the STARTING PRICE of each occasion, used as a relative
+     weight. They are potential booking value, not revenue — a WhatsApp
+     click is not a booking — so read "conv. value" in Ads as a
+     weighted lead score, not as money earned. */
+  var PAGE_VALUE = {
+    proposal_page:      499,
+    baby_shower_page:   300,
+    bridal_shower_page: 300,
+    date_night_page:    200,
+    anniversary_page:   200,
+    birthday_page:      200
+  };
+  var DEFAULT_VALUE = 200;                          /* home, journal, terms */
+
+  /* Guard against the same conversion firing twice for one action (e.g. a
+     double-tap, or a click that bubbles through nested handlers). Ads
+     counts each hit, so a duplicate inflates the numbers the bidding
+     learns from. Belt and braces: also set Count = "One" on each
+     conversion action in the Ads UI. */
+  var lastConv = {};
   function adsConversion(kind) {
     if (typeof window.gtag !== 'function') return;
     if (!ADS_CONV[kind]) return;                    /* unknown kind → no-op */
-    try { window.gtag('event', 'conversion', { send_to: ADS_CONV[kind] }); } catch (e) {}
+    var now = Date.now();
+    if (lastConv[kind] && now - lastConv[kind] < 2000) return;
+    lastConv[kind] = now;
+    try {
+      window.gtag('event', 'conversion', {
+        send_to:  ADS_CONV[kind],
+        value:    PAGE_VALUE[PAGE_ID] || DEFAULT_VALUE,
+        currency: 'AUD'
+      });
+    } catch (e) {}
   }
 
   /* Rough device check, used to tag contact clicks. Matters because
