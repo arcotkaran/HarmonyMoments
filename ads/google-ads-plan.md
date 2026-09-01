@@ -63,7 +63,7 @@ Campaign: **Harmony Moments - Search** (existing). Add these ad groups inside it
 
     https://harmonymoments.com.au/occasions/romantic-picnic-date-sydney/
 
-**Display path:** `/date-night` `/sydney`  |  **Starting price:** $200
+**Display path:** `/date-night` `/sydney`  |  **Starting price:** $250
 
 ### Headlines (paste one per line, 15 total)
 - Romantic Picnic Sydney  *(22)*
@@ -74,7 +74,7 @@ Campaign: **Harmony Moments - Search** (existing). Add these ad groups inside it
 - Golden Hour Picnic Hire  *(23)*
 - Luxury Picnic For Two  *(21)*
 - Rated 5.0 On Google  *(19)*
-- From $200 | Sydney Wide  *(23)*
+- From $250 | Sydney Wide  *(23)*
 - Packed Down After You  *(21)*
 - Harbourside Or Backyard  *(23)*
 - Surprise Them Tonight  *(21)*
@@ -85,7 +85,7 @@ Campaign: **Harmony Moments - Search** (existing). Add these ad groups inside it
 ### Descriptions (4 total)
 - A table for two, styled at golden hour and waiting for you. You just turn up.  *(77)*
 - Low table, florals, candles and cushions. Set up before you arrive, packed down after.  *(86)*
-- Harbourside, beach, park or your own backyard. From $200, Sydney-wide.  *(70)*
+- Harbourside, beach, park or your own backyard. From $250, Sydney-wide.  *(70)*
 - Rated 5.0 on Google. Tell us your date and we will send an exact quote.  *(71)*
 
 ### Keywords - Exact match `[...]`
@@ -114,7 +114,7 @@ Campaign: **Harmony Moments - Search** (existing). Add these ad groups inside it
 
     https://harmonymoments.com.au/occasions/anniversary-picnic-sydney/
 
-**Display path:** `/anniversary` `/sydney`  |  **Starting price:** $200
+**Display path:** `/anniversary` `/sydney`  |  **Starting price:** $250
 
 ### Headlines (paste one per line, 15 total)
 - Anniversary Picnic Sydney  *(25)*
@@ -125,7 +125,7 @@ Campaign: **Harmony Moments - Search** (existing). Add these ad groups inside it
 - Golden Hour, Harbourside  *(24)*
 - Luxury Picnic For Two  *(21)*
 - Rated 5.0 On Google  *(19)*
-- From $200 | Sydney Wide  *(23)*
+- From $250 | Sydney Wide  *(23)*
 - Packed Down After You  *(21)*
 - Cake And Florals Added  *(22)*
 - Surprise Them This Year  *(23)*
@@ -136,7 +136,7 @@ Campaign: **Harmony Moments - Search** (existing). Add these ad groups inside it
 ### Descriptions (4 total)
 - However many years it has been, it deserves more than a restaurant booking.  *(75)*
 - Low table, florals, candles and cushions. Set up before you arrive, packed down after.  *(86)*
-- Harbourside, beach, park or your own backyard. From $200, Sydney-wide.  *(70)*
+- Harbourside, beach, park or your own backyard. From $250, Sydney-wide.  *(70)*
 - Rated 5.0 on Google. Tell us your date and we will send an exact quote.  *(71)*
 
 ### Keywords - Exact match `[...]`
@@ -164,7 +164,7 @@ Campaign: **Harmony Moments - Search** (existing). Add these ad groups inside it
 
     https://harmonymoments.com.au/occasions/birthday-picnic-sydney/
 
-**Display path:** `/birthday` `/sydney`  |  **Starting price:** $200
+**Display path:** `/birthday` `/sydney`  |  **Starting price:** $250
 
 ### Headlines (paste one per line, 15 total)
 - Birthday Picnic Sydney  *(22)*
@@ -175,7 +175,7 @@ Campaign: **Harmony Moments - Search** (existing). Add these ad groups inside it
 - Luxury Picnic Birthdays  *(23)*
 - For Two Or Up To Six  *(20)*
 - Rated 5.0 On Google  *(19)*
-- From $200 | Sydney Wide  *(23)*
+- From $250 | Sydney Wide  *(23)*
 - Packed Down After You  *(21)*
 - Cake, Balloons, Signage  *(23)*
 - Harbourside Or Backyard  *(23)*
@@ -187,7 +187,7 @@ Campaign: **Harmony Moments - Search** (existing). Add these ad groups inside it
 - Turn up to a table already styled. No hauling, no setting up, no packing down.  *(78)*
 - Low table, florals, candles and cushions for two, or a group of up to six.  *(74)*
 - Cake, balloons and signage on request. Harbourside, park or your own backyard.  *(78)*
-- From $200 for two, $300 for 4-6 guests. Rated 5.0 on Google. Sydney-wide.  *(73)*
+- From $250 for two, $350 for 4-6 guests. Rated 5.0 on Google. Sydney-wide.  *(73)*
 
 ### Keywords - Exact match `[...]`
 - [birthday picnic sydney]
@@ -214,7 +214,7 @@ Campaign: **Harmony Moments - Search** (existing). Add these ad groups inside it
 
     https://harmonymoments.com.au/occasions/baby-shower-picnic-sydney/
 
-**Display path:** `/baby-shower` `/sydney`  |  **Starting price:** $300
+**Display path:** `/baby-shower` `/sydney`  |  **Starting price:** $350
 
 ### Headlines (paste one per line, 15 total)
 - Baby Shower Picnic Sydney  *(25)*
@@ -225,7 +225,7 @@ Campaign: **Harmony Moments - Search** (existing). Add these ad groups inside it
 - Pastel Balloon Arch Hire  *(24)*
 - Styled For Four To Six  *(22)*
 - Rated 5.0 On Google  *(19)*
-- From $300 | Sydney Wide  *(23)*
+- From $350 | Sydney Wide  *(23)*
 - Packed Down After You  *(21)*
 - Your Palette, Matched  *(21)*
 - Harbourside Or Garden  *(21)*
@@ -237,7 +237,7 @@ Campaign: **Harmony Moments - Search** (existing). Add these ad groups inside it
 - A soft, beautiful setting styled outdoors, without you carrying a single thing.  *(79)*
 - Low table, florals, cushions and styling for four to six guests. Your palette.  *(78)*
 - Balloon arch and dessert styling on request. Harbourside, park or your own garden.  *(82)*
-- From $300. Rated 5.0 on Google. Set up before guests arrive, packed down after.  *(79)*
+- From $350. Rated 5.0 on Google. Set up before guests arrive, packed down after.  *(79)*
 
 ### Keywords - Exact match `[...]`
 - [baby shower picnic sydney]
@@ -263,7 +263,7 @@ Campaign: **Harmony Moments - Search** (existing). Add these ad groups inside it
 
     https://harmonymoments.com.au/occasions/bridal-shower-picnic-sydney/
 
-**Display path:** `/bridal-shower` `/sydney`  |  **Starting price:** $300
+**Display path:** `/bridal-shower` `/sydney`  |  **Starting price:** $350
 
 ### Headlines (paste one per line, 15 total)
 - Bridal Shower Picnic Sydney  *(27)*
@@ -274,7 +274,7 @@ Campaign: **Harmony Moments - Search** (existing). Add these ad groups inside it
 - White And Blush Florals  *(23)*
 - Styled For Four To Six  *(22)*
 - Rated 5.0 On Google  *(19)*
-- From $300 | Sydney Wide  *(23)*
+- From $350 | Sydney Wide  *(23)*
 - Packed Down After You  *(21)*
 - Your Palette, Matched  *(21)*
 - Harbourside Or Garden  *(21)*
@@ -286,7 +286,7 @@ Campaign: **Harmony Moments - Search** (existing). Add these ad groups inside it
 - Somewhere beautiful, styled properly, with nothing for you to carry or clean up.  *(80)*
 - Low table, white and blush florals, cushions and styling for four to six guests.  *(80)*
 - Cake and signage on request. Harbourside, park or your own garden. Sydney-wide.  *(79)*
-- From $300. Rated 5.0 on Google. Set up before guests arrive, packed down after.  *(79)*
+- From $350. Rated 5.0 on Google. Set up before guests arrive, packed down after.  *(79)*
 
 ### Keywords - Exact match `[...]`
 - [bridal shower picnic sydney]

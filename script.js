@@ -36,8 +36,11 @@
     {
       name: 'The Intimate',
       tagline: 'For two.',
-      price: 'From $200',
-      description: 'A romantic golden-hour setup for two — date nights, proposals and anniversaries.',
+      price: 'From $250',
+      /* Proposals are deliberately not listed here — they are a separate
+         premium tier at $499 with their own page, and naming them beside
+         the two-person price implied they started at it. */
+      description: 'A romantic golden-hour setup for two — date nights and anniversaries.',
       details: [
         'Styled low table & cushions',
         'Candles & styled details',
@@ -51,7 +54,7 @@
     {
       name: 'The Celebration',
       tagline: 'For your favourite people.',
-      price: 'From $300',
+      price: 'From $350',
       description: 'An elevated setup for birthdays and celebrations of 4\u20136 guests. Completely stress-free.',
       details: [
         'Seating & styling for up to 6',
@@ -338,13 +341,13 @@
      weighted lead score, not as money earned. */
   var PAGE_VALUE = {
     proposal_page:      499,
-    baby_shower_page:   300,
-    bridal_shower_page: 300,
-    date_night_page:    200,
-    anniversary_page:   200,
-    birthday_page:      200
+    baby_shower_page:   350,
+    bridal_shower_page: 350,
+    date_night_page:    250,
+    anniversary_page:   250,
+    birthday_page:      250
   };
-  var DEFAULT_VALUE = 200;                          /* home, journal, terms */
+  var DEFAULT_VALUE = 250;                          /* home, journal, terms */
 
   /* Guard against the same conversion firing twice for one action (e.g. a
      double-tap, or a click that bubbles through nested handlers). Ads
