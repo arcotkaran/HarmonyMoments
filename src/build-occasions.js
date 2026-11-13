@@ -467,6 +467,7 @@ ${o.steps.map(([name, desc], i) =>
         </div>
         <div class="review-grid">
           <figure class="review-card fade-in">
+            <img class="review-photo" src="perfect-birthday.webp" alt="Birthday picnic styled by Harmony Moments on a Sydney harbourside lawn" loading="lazy">
             <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <blockquote class="review-quote">
               <p>A big thank you to Dipali from Harmony Moments! The picnic setup was even more beautiful than I had imagined and honestly exceeded all my expectations. Every little detail was perfect and she made us feel so special throughout the whole experience.</p>
@@ -476,6 +477,7 @@ ${o.steps.map(([name, desc], i) =>
             <figcaption class="review-meta"><span class="review-name">Rohan Mahajan</span></figcaption>
           </figure>
           <figure class="review-card fade-in delay-1">
+            <img class="review-photo" src="gallery-1.webp" alt="Harmony Moments picnic table styled with florals and candles at golden hour" loading="lazy">
             <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <blockquote class="review-quote">
               <p>I reached out to Dipali at Harmony Moments and I couldn&rsquo;t be happier with the experience. From our very first conversation, Dipali was friendly, approachable, and quickly understood exactly what I had envisioned. She made the entire booking and planning process smooth and stress free, keeping me updated every step of the way.</p>
@@ -485,6 +487,7 @@ ${o.steps.map(([name, desc], i) =>
             <figcaption class="review-meta"><span class="review-name">Shallu Bali</span></figcaption>
           </figure>
           <figure class="review-card fade-in delay-2">
+            <img class="review-photo" src="review-michelle.webp" alt="Vintage floral teacup, pink scalloped plates and gold cutlery on a styled Harmony Moments table" loading="lazy">
             <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <blockquote class="review-quote">
               <p>We had the most amazing experience with Harmony Moments for a picnic set-up over the weekend, and I honestly couldn&rsquo;t recommend them highly enough! From start to finish, they were incredibly professional, organised and so lovely to deal with. The attention to detail was absolutely next level &mdash; every little element was beautifully thought through and perfectly styled.</p>
@@ -494,6 +497,7 @@ ${o.steps.map(([name, desc], i) =>
             <figcaption class="review-meta"><span class="review-name">Michelle Mikelsen</span></figcaption>
           </figure>
           <figure class="review-card fade-in">
+            <img class="review-photo" src="package-athome.webp" alt="Backyard at dusk styled with a low picnic table, glowing string lights, candles and florals" loading="lazy">
             <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <blockquote class="review-quote">
               <p>I recently engaged Harmony Moments to organise a surprise picnic for my husband and children, and it was such a delightful experience from start to finish. From planning, coordinating through to the day of set up and picnic, everything was seamless, professional and stress-free.</p>
@@ -503,6 +507,7 @@ ${o.steps.map(([name, desc], i) =>
             <figcaption class="review-meta"><span class="review-name">Rachana Hegde</span></figcaption>
           </figure>
           <figure class="review-card fade-in delay-1">
+            <img class="review-photo" src="review-kit.webp" alt="Coral florals, candles and place settings on a low picnic table styled by Harmony Moments in a Sydney park" loading="lazy">
             <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <blockquote class="review-quote">
               <p>Harmony Moments and my wonderful wife and children presented an exceptional Father&rsquo;s Day picnic surprise for me. Every aspect was taken care of. A truly memorable day. Very grateful to Dipali and her team at HM.</p>
