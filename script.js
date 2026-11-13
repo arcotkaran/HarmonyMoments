@@ -36,15 +36,15 @@
     {
       name: 'The Intimate',
       tagline: 'For two.',
-      price: 'From $250',
+      price: 'From $333',
       /* Proposals are deliberately not listed here — they are a separate
-         premium tier at $499 with their own page, and naming them beside
+         premium tier at $666 with their own page, and naming them beside
          the two-person price implied they started at it. */
       description: 'A romantic golden-hour setup for two — date nights and anniversaries.',
       details: [
         'Styled low table & cushions',
         'Candles & styled details',
-        'Grazing-ready styling',
+        'Fresh fruit included',
         'Choice of Sydney park or your space'
       ],
       image: 'package-intimate.webp',
@@ -54,10 +54,11 @@
     {
       name: 'The Celebration',
       tagline: 'For your favourite people.',
-      price: 'From $350',
+      price: 'From $444',
       description: 'An elevated setup for birthdays and celebrations of 4\u20136 guests. Completely stress-free.',
       details: [
-        'Seating & styling for up to 6',
+        '$444 for up to 4 · $555 for up to 6',
+        'Fresh fruit included',
         'Personalised touches',
         'Candles & d\u00e9cor',
         'Grazing table styling available'
