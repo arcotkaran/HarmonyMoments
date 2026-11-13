@@ -57,6 +57,45 @@ function parsePage(file) {
    so a page can be moved without breaking its assets. */
 const ROOT = '/';
 
+/* Breadcrumb trail built from the URL path, so it can never drift from
+   where the page actually lives. Home > Occasions > This page. The home
+   page gets none — a one-item trail tells a reader nothing.
+   `breadcrumbName` in front-matter overrides the last crumb's label,
+   which otherwise comes from the page title before any "|". */
+/* Intermediate folders need a name AND a URL that actually resolves.
+   /journal/ has an index page; /occasions/ does not, so that crumb points
+   at the occasions section of the home page rather than a 404. */
+const SEGMENTS = {
+  occasions: { name: 'Occasions', url: SITE_URL + '#occasions' },
+  journal:   { name: 'Journal',   url: SITE_URL + 'journal/' }
+};
+
+function breadcrumb(pagePath, meta) {
+  if (!pagePath) return null;                       /* home page */
+  const segments = pagePath.replace(/\/$/, '').split('/');
+  const items = [{ name: 'Home', url: SITE_URL }];
+  let built = '';
+  segments.forEach((seg, i) => {
+    built += seg + '/';
+    if (i === segments.length - 1) {
+      items.push({
+        name: meta.breadcrumbName || meta.title.split('|')[0].trim(),
+        url: SITE_URL + built
+      });
+    } else if (SEGMENTS[seg]) {
+      items.push(SEGMENTS[seg]);
+    }
+  });
+  if (items.length < 2) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((it, i) => ({
+      '@type': 'ListItem', position: i + 1, name: it.name, item: it.url
+    }))
+  };
+}
+
 /* On sub-pages, in-page anchors pointing at sections that only exist on
    the HOME page must jump back to it. Anchors for sections that DO exist
    on this page stay local. */
@@ -93,15 +132,20 @@ pageFiles.forEach(file => {
     .replace(/\{\{TITLE\}\}/g, meta.title)
     .replace(/\{\{DESCRIPTION\}\}/g, meta.description)
     .replace(/\{\{CANONICAL\}\}/g, SITE_URL + pagePath)
+    /* Share image: each page names its own in front-matter, so a link to
+       the proposal page doesn't preview with the generic site banner.
+       Falls back to og-image.jpg where a page hasn't named one. */
+    .replace(/\{\{OGIMAGE\}\}/g, SITE_URL + (meta.ogImage || 'og-image.jpg'))
     .replace(/\{\{PAGE_ID\}\}/g, meta.id)
     /* meta.schema may be one object or an array of them; each becomes its
        own JSON-LD block. Keeping it per-page means e.g. FAQ markup only
-       appears on the page that actually shows an FAQ. */
-    .replace(/\{\{SCHEMA\}\}/g, meta.schema
-      ? [].concat(meta.schema).map(s =>
-          '  <script type="application/ld+json">\n' +
-          JSON.stringify(s, null, 2) + '\n  </script>').join('\n')
-      : '')
+       appears on the page that actually shows an FAQ. A BreadcrumbList is
+       appended for every sub-page, so search results show the trail
+       rather than a bare URL. */
+    .replace(/\{\{SCHEMA\}\}/g, [].concat(meta.schema || [], breadcrumb(pagePath, meta) || [])
+      .map(s =>
+        '  <script type="application/ld+json">\n' +
+        JSON.stringify(s, null, 2) + '\n  </script>').join('\n'))
     .replace(/\{\{CSSV\}\}/g, CSS_VERSION)
     .replace(/\{\{JSV\}\}/g, JS_VERSION)
     .replace(/\{\{ROOT\}\}/g, ROOT);

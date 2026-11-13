@@ -38,11 +38,11 @@
   <meta property="og:title" content="{{TITLE}}">
   <meta property="og:description" content="{{DESCRIPTION}}">
   <meta property="og:url" content="{{CANONICAL}}"><!-- REPLACE with real link -->
-  <meta property="og:image" content="https://harmonymoments.com.au/og-image.jpg"><!-- REPLACE with real link -->
+  <meta property="og:image" content="{{OGIMAGE}}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{TITLE}}">
   <meta name="twitter:description" content="{{DESCRIPTION}}">
-  <meta name="twitter:image" content="https://harmonymoments.com.au/og-image.jpg"><!-- REPLACE with real link -->
+  <meta name="twitter:image" content="{{OGIMAGE}}">
 
   <!-- ===================== FAVICON (file provided by owner) ===================== -->
   <!-- Canonical: tells Google this is the one true URL for this page,
@@ -116,6 +116,12 @@
     },
     "telephone": "+61468820725",
     "areaServed": { "@type": "City", "name": "Sydney" },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    }],
     "sameAs": ["https://www.instagram.com/har_mony_moments"],
     "aggregateRating": {
       "@type": "AggregateRating",

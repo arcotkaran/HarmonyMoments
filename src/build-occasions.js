@@ -303,6 +303,9 @@ function page(o) {
     priority: '0.9',
     title: o.title,
     description: o.description,
+    /* Share preview uses this occasion's own hero, not the site banner. */
+    ogImage: `occ-${o.file}-hero.jpg`,
+    breadcrumbName: o.label,
     schema: [
       {
         '@context': 'https://schema.org',

@@ -38,11 +38,11 @@
   <meta property="og:title" content="Terms &amp; Conditions | Harmony Moments Sydney">
   <meta property="og:description" content="Booking terms, payment schedule, cancellation and wet weather policy for Harmony Moments luxury picnic styling in Sydney.">
   <meta property="og:url" content="https://harmonymoments.com.au/terms/"><!-- REPLACE with real link -->
-  <meta property="og:image" content="https://harmonymoments.com.au/og-image.jpg"><!-- REPLACE with real link -->
+  <meta property="og:image" content="https://harmonymoments.com.au/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Terms &amp; Conditions | Harmony Moments Sydney">
   <meta name="twitter:description" content="Booking terms, payment schedule, cancellation and wet weather policy for Harmony Moments luxury picnic styling in Sydney.">
-  <meta name="twitter:image" content="https://harmonymoments.com.au/og-image.jpg"><!-- REPLACE with real link -->
+  <meta name="twitter:image" content="https://harmonymoments.com.au/og-image.jpg">
 
   <!-- ===================== FAVICON (file provided by owner) ===================== -->
   <!-- Canonical: tells Google this is the one true URL for this page,
@@ -116,6 +116,12 @@
     },
     "telephone": "+61468820725",
     "areaServed": { "@type": "City", "name": "Sydney" },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    }],
     "sameAs": ["https://www.instagram.com/har_mony_moments"],
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -156,7 +162,26 @@
     }]
   }
   </script>
-
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://harmonymoments.com.au/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Terms & Conditions",
+      "item": "https://harmonymoments.com.au/terms/"
+    }
+  ]
+}
+  </script>
 </head>
 
 <body id="top" data-page-id="terms_page">
