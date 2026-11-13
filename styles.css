@@ -2089,3 +2089,41 @@ body.lightbox-open { overflow: hidden; }
   color: rgba(58, 58, 54, 0.72);
   margin-bottom: 0.85rem;
 }
+
+
+/* ====================================================================
+   27. WIDE DESKTOP  (≥1200px only — mobile/tablet untouched)
+   Lets sections breathe on large monitors instead of sitting in a
+   narrow column in the middle of the screen.
+   ==================================================================== */
+@media (min-width: 1200px) {
+  .container { width: min(100% - 5rem, 1320px); }
+
+  .experience-grid { gap: 2.25rem; }
+  .occasion-grid { gap: 1.5rem; }
+  .steps-grid { max-width: 1120px; }
+
+  /* Reviews: three across, centred so 1, 2 or 5 cards still balance */
+  .review-grid {
+    max-width: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2rem;
+  }
+  .review-grid .review-card {
+    flex: 0 1 calc((100% - 4rem) / 3);
+    max-width: none;
+    height: auto;
+  }
+  .review-photo { max-width: 100%; }
+}
+
+@media (min-width: 1600px) {
+  .container { width: min(100% - 8rem, 1520px); }
+  .experience-grid { gap: 2.75rem; }
+  .occasion-grid { gap: 1.75rem; }
+  .review-grid { gap: 2.5rem; }
+  .review-grid .review-card { flex-basis: calc((100% - 5rem) / 3); }
+}
