@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./index.html)",
+      "Read(./occasions/**)",
+      "Read(./journal/**)",
+      "Read(./terms/**)",
+      "Read(./sitemap.xml)",
+      "Read(./.netlify/**)"
+    ]
+  }
+}
