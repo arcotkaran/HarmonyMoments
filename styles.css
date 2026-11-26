@@ -1303,16 +1303,48 @@ body.lightbox-open { overflow: hidden; }
    ==================================================================== */
 .testimonials { background: var(--cream-deep); }
 
+/* Reviews are a horizontal rail at every width, not a wrapping grid.
+   Social proof keeps arriving, so the section has to absorb a growing
+   number of reviews without growing the page — the fifteenth review
+   costs the same vertical space as the third. Cards are a fixed share of
+   the track and snap, so a partial card is always visible at the right
+   edge: that sliver is the affordance telling you there is more. */
 .review-grid {
-  display: grid;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
   gap: 1.25rem;
-  max-width: 940px;
-  margin-inline: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  touch-action: pan-x pan-y;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  padding-block-end: 0.25rem;
 }
-@media (min-width: 860px) {
-  .review-grid { grid-template-columns: repeat(2, 1fr); align-items: start; }
-  .review-grid .review-card { margin: 0; height: 100%; }
+.review-grid::-webkit-scrollbar { display: none; }
+.review-grid .review-card {
+  flex: 0 0 min(88%, 380px);
+  max-width: none;
+  margin: 0;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
 }
+/* Clamp every quote so one long review can't set the height of the rail.
+   "Read more" expands it in place. The meta line is pushed to the bottom
+   so the names sit on a common baseline across cards. */
+.review-quote {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.review-card.is-expanded .review-quote {
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+.review-card .review-meta { margin-top: auto; }
 
 .review-card {
   max-width: 720px;
@@ -1500,10 +1532,11 @@ body.lightbox-open { overflow: hidden; }
 /* Two review buttons sit side by side */
 .review-cta { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
 
-/* "Read more" under a clamped review — hidden on desktop, where the
-   quotes fit comfortably and no clamping is applied. */
+/* "Read more" under a clamped review. Quotes are clamped at every width
+   now that reviews sit in a rail — without it a 900-character review
+   would set the height of every card beside it. */
 .review-more {
-  display: none;
+  display: inline-block;
   margin-top: 0.5rem;
   padding: 0;
   background: none;
@@ -1513,9 +1546,6 @@ body.lightbox-open { overflow: hidden; }
   font-weight: 700;
   color: var(--clay);
   cursor: pointer;
-}
-@media (max-width: 767px) {
-  .review-more { display: inline-block; }
 }
 /* A short review has nothing to expand, so the script sets [hidden] on its
    button. An author `display` rule beats the browser's own
@@ -1701,27 +1731,17 @@ body.lightbox-open { overflow: hidden; }
   .occasion-name { font-size: 0.78rem; }
   .occasions-note { margin-top: 1.4rem; font-size: 0.9rem; }
 
-  /* Reviews: swipe sideways instead of stacking three tall cards.
-     Same snap settings as the experiences carousel — "proximity" and an
-     explicit touch-action so vertical page scrolling isn't hijacked. */
+  /* Reviews: the rail bleeds past the container on phones so a card edge
+     shows at both sides. Flex/snap behaviour comes from the base rule. */
   .review-grid {
-    display: flex;
     gap: 0.9rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x proximity;
-    touch-action: pan-x pan-y;
-    overscroll-behavior-x: contain;
-    scrollbar-width: none;
     width: calc(100% + 2rem);
     margin-inline: -1rem;
     padding-inline: 7.5vw;
     scroll-padding-inline: 7.5vw;
   }
-  .review-grid::-webkit-scrollbar { display: none; }
   .review-grid .review-card {
     flex: 0 0 85%;
-    scroll-snap-align: start;
     padding: 1.2rem 1.1rem 1.4rem;
   }
   .review-photo { max-width: 120px; margin-bottom: 0.75rem; }
@@ -1729,18 +1749,8 @@ body.lightbox-open { overflow: hidden; }
   .review-quote p { font-size: 0.9rem; line-height: 1.55; }
   .review-meta { margin-top: 0.8rem; padding-top: 0.7rem; }
 
-  /* Clamp the quote to 4 lines; "Read more" reveals the rest in place.
-     Keeps three reviews inside roughly one screen instead of three. */
-  .review-quote {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  .review-card.is-expanded .review-quote {
-    -webkit-line-clamp: unset;
-    overflow: visible;
-  }
+  /* Tighter clamp on phones — four lines rather than five. */
+  .review-quote { -webkit-line-clamp: 4; }
 
   /* FAQ: tighter rows so seven questions don't dominate the page */
   .faq-item summary { padding: 0.85rem 0.25rem; font-size: 1rem; }
@@ -2103,20 +2113,9 @@ body.lightbox-open { overflow: hidden; }
   .occasion-grid { gap: 1.5rem; }
   .steps-grid { max-width: 1120px; }
 
-  /* Reviews: three across, centred so 1, 2 or 5 cards still balance */
-  .review-grid {
-    max-width: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
-    gap: 2rem;
-  }
-  .review-grid .review-card {
-    flex: 0 1 calc((100% - 4rem) / 3);
-    max-width: none;
-    height: auto;
-  }
+  /* Reviews: three and a sliver across, still one scrolling rail */
+  .review-grid { gap: 2rem; }
+  .review-grid .review-card { flex: 0 0 calc((100% - 5rem) / 3.25); }
   .review-photo { max-width: 100%; }
 }
 
@@ -2125,5 +2124,5 @@ body.lightbox-open { overflow: hidden; }
   .experience-grid { gap: 2.75rem; }
   .occasion-grid { gap: 1.75rem; }
   .review-grid { gap: 2.5rem; }
-  .review-grid .review-card { flex-basis: calc((100% - 5rem) / 3); }
+  .review-grid .review-card { flex-basis: calc((100% - 6.25rem) / 3.25); }
 }
