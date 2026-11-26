@@ -1303,6 +1303,45 @@ body.lightbox-open { overflow: hidden; }
    ==================================================================== */
 .testimonials { background: var(--cream-deep); }
 
+/* The rail and its two arrows. The arrows sit over the track's edges
+   rather than beside it, so the cards keep the container's full width.
+   They are a convenience, not the only way through: the track is also
+   swipeable, draggable and keyboard-focusable, and each fades out when
+   that end is reached rather than sitting there as a dead control. */
+.review-rail { position: relative; }
+
+.rail-nav {
+  position: absolute;
+  top: 38%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line, #E0D8C9);
+  border-radius: 999px;
+  background: #FFFFFF;
+  color: var(--fern);
+  box-shadow: 0 6px 18px rgba(58, 58, 54, 0.14);
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+.rail-nav:hover { background: var(--cream); transform: translateY(-1px); }
+.rail-nav:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
+.rail-prev { left: -14px; }
+.rail-next { right: -14px; }
+/* At a given end the arrow is inert: faded, unclickable, out of tab order. */
+.rail-nav[disabled] { opacity: 0; pointer-events: none; }
+
+@media (max-width: 767px) {
+  /* Phones swipe — arrows would only cover the cards. */
+  .rail-nav { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rail-nav { transition: none; }
+  .rail-nav:hover { transform: none; }
+}
+
 /* Reviews are a horizontal rail at every width, not a wrapping grid.
    Social proof keeps arriving, so the section has to absorb a growing
    number of reviews without growing the page — the fifteenth review
@@ -1437,6 +1476,16 @@ body.lightbox-open { overflow: hidden; }
   justify-content: center;
   margin-top: 1.25rem;
 }
+/* The badge is a link to the Google listing, so it needs to read as one
+   without turning into blue underlined text inside a white pill. */
+a.google-rating { text-decoration: none; color: inherit; transition: box-shadow 0.2s ease, transform 0.2s ease; }
+a.google-rating:hover { transform: translateY(-1px); box-shadow: 0 10px 26px rgba(58, 58, 54, 0.18); }
+a.google-rating:hover .google-rating-label { text-decoration: underline; }
+a.google-rating:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  a.google-rating, a.google-rating:hover { transition: none; transform: none; }
+}
+
 .google-rating {
   display: inline-flex;
   align-items: center;

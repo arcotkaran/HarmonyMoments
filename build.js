@@ -31,8 +31,8 @@ const SITE_URL   = 'https://harmonymoments.com.au/';
 
 /* Bump these when styles.css / script.js change, so browsers don't
    serve a stale cached copy. */
-const CSS_VERSION = '25';
-const JS_VERSION  = '20';
+const CSS_VERSION = '26';
+const JS_VERSION  = '21';
 
 const layout = fs.readFileSync(path.join(SRC, 'layout.html'), 'utf8');
 

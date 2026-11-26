@@ -57,7 +57,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- ===================== STYLES ===================== -->
-  <link rel="stylesheet" href="/styles.css?v=25">
+  <link rel="stylesheet" href="/styles.css?v=26">
 
   <!-- ================================================================
        ANALYTICS + ADS HOOKS
@@ -405,7 +405,8 @@
           <li class="trust-point">Packed down after &mdash; you just host</li>
         </ul>
         <div class="google-rating-wrap">
-          <div class="google-rating">
+          <a class="google-rating" href="https://www.google.com/maps/place/Harmony+Moments/@-33.8225486,150.9319747,10z/data=!4m8!3m7!1s0x6b12a591f7858e21:0x2d9c5a9b9f4c1b6f!8m2!3d-33.8225486!4d150.9319747!9m1!1b1!16s%2Fg%2F11z9hxk6vq" target="_blank" rel="noopener"
+             data-enquiry-method="google-reviews" aria-label="Read all Harmony Moments reviews on Google">
             <svg class="google-rating-g" viewBox="0 0 48 48" width="20" height="20" aria-hidden="true" focusable="false">
               <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
               <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
@@ -415,7 +416,7 @@
             <span class="google-rating-score">5.0</span>
             <span class="google-rating-stars" role="img" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
             <span class="google-rating-label">Google&nbsp;Reviews</span>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -536,10 +537,14 @@
         <div class="section-head fade-in">
           <p class="eyebrow">From our clients</p>
           <h2 class="section-title">Kind words</h2>
-          <p class="section-intro">Rated 5.0 from 16 Google reviews &mdash; swipe to read more.</p>
+          <p class="section-intro">More than 30 happy clients across Sydney, and rated 5.0 on Google.</p>
         </div>
 
-        <div class="review-grid">
+        <div class="review-rail">
+        <button type="button" class="rail-nav rail-prev" aria-label="Previous reviews" aria-controls="review-rail-track">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="review-grid" id="review-rail-track" tabindex="0" role="group" aria-label="Client reviews, scroll horizontally">
 
         <figure class="review-card fade-in">
           <img class="review-photo" src="/prop-1.webp" alt="Floral heart arch with MARRY ME letters styled by Harmony Moments on a Sydney beach" loading="lazy">
@@ -691,8 +696,10 @@
         </figure>
 
         </div>
-
-        <p class="reviews-note fade-in">Every word above is a verified Google review. <a href="https://www.google.com/maps/place/Harmony+Moments/@-33.8225486,150.9319747,10z/data=!4m8!3m7!1s0x6b12a591f7858e21:0x2d9c5a9b9f4c1b6f!8m2!3d-33.8225486!4d150.9319747!9m1!1b1!16s%2Fg%2F11z9hxk6vq" target="_blank" rel="noopener" data-enquiry-method="google-reviews">Read all 16 on Google</a>.</p>
+        <button type="button" class="rail-nav rail-next" aria-label="More reviews" aria-controls="review-rail-track">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        </div>
       </div>
     </section>
 
@@ -926,6 +933,6 @@
 
 
   <!-- ===================== BEHAVIOUR ===================== -->
-  <script src="/script.js?v=20" defer></script>
+  <script src="/script.js?v=21" defer></script>
 </body>
 </html>

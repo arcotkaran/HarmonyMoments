@@ -867,6 +867,56 @@
      Reviews are clamped to a few lines so the section stays compact on
      a phone; tapping expands the full quote in place.
      ================================================================== */
+  /* Arrows for the reviews rail. The rail scrolls natively — by swipe,
+     trackpad, drag or keyboard — so these only have to move it by one
+     screenful and get out of the way at each end. Disabled rather than
+     hidden, so the layout doesn't shift when the last card arrives. */
+  function initReviewRail() {
+    document.querySelectorAll('.review-rail').forEach(function (rail) {
+      var track = rail.querySelector('.review-grid');
+      var prev  = rail.querySelector('.rail-prev');
+      var next  = rail.querySelector('.rail-next');
+      if (!track || !prev || !next) return;
+
+      function step() {
+        var card = track.querySelector('.review-card');
+        /* A whole screenful, less one card so the reader keeps their place. */
+        var w = card ? card.getBoundingClientRect().width + 20 : 320;
+        return Math.max(w, Math.floor(track.clientWidth / w) * w - w) || w;
+      }
+
+      function sync() {
+        var max = track.scrollWidth - track.clientWidth;
+        prev.disabled = track.scrollLeft <= 4;
+        next.disabled = track.scrollLeft >= max - 4;
+      }
+
+      prev.addEventListener('click', function () {
+        track.scrollBy({ left: -step(), behavior: 'smooth' });
+      });
+      next.addEventListener('click', function () {
+        track.scrollBy({ left: step(), behavior: 'smooth' });
+      });
+
+      var t;
+      track.addEventListener('scroll', function () {
+        clearTimeout(t);
+        t = setTimeout(sync, 60);
+      }, { passive: true });
+      window.addEventListener('resize', function () {
+        clearTimeout(t);
+        t = setTimeout(sync, 150);
+      });
+
+      sync();
+      /* Card heights settle once the web font lands, which can change
+         whether the track overflows at all. */
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(sync).catch(function () {});
+      }
+    });
+  }
+
   function initReviewToggles() {
     var pairs = [];
 
@@ -924,5 +974,6 @@
     initGalleryLightbox();
     initFlowAnalytics();
     initReviewToggles();
+    initReviewRail();
   });
 })();

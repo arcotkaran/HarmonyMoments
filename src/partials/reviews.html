@@ -16,10 +16,14 @@
         <div class="section-head fade-in">
           <p class="eyebrow">From our clients</p>
           <h2 class="section-title">Kind words</h2>
-          <p class="section-intro">Rated 5.0 from 16 Google reviews &mdash; swipe to read more.</p>
+          <p class="section-intro">More than 30 happy clients across Sydney, and rated 5.0 on Google.</p>
         </div>
 
-        <div class="review-grid">
+        <div class="review-rail">
+        <button type="button" class="rail-nav rail-prev" aria-label="Previous reviews" aria-controls="review-rail-track">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="review-grid" id="review-rail-track" tabindex="0" role="group" aria-label="Client reviews, scroll horizontally">
 
         <figure class="review-card fade-in">
           <img class="review-photo" src="prop-1.webp" alt="Floral heart arch with MARRY ME letters styled by Harmony Moments on a Sydney beach" loading="lazy">
@@ -171,7 +175,9 @@
         </figure>
 
         </div>
-
-        <p class="reviews-note fade-in">Every word above is a verified Google review. <a href="https://www.google.com/maps/place/Harmony+Moments/@-33.8225486,150.9319747,10z/data=!4m8!3m7!1s0x6b12a591f7858e21:0x2d9c5a9b9f4c1b6f!8m2!3d-33.8225486!4d150.9319747!9m1!1b1!16s%2Fg%2F11z9hxk6vq" target="_blank" rel="noopener" data-enquiry-method="google-reviews">Read all 16 on Google</a>.</p>
+        <button type="button" class="rail-nav rail-next" aria-label="More reviews" aria-controls="review-rail-track">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        </div>
       </div>
     </section>
