@@ -1,22 +1,36 @@
 <!-- ================================================================
      REVIEWS  (REAL Google reviews only — never invent testimonials.)
 
-     Shared by the home page, the proposal page and every occasion page,
-     so the wording can't drift between them. To add one: copy a block,
-     paste the real text verbatim, then add it to the JSON-LD in
-     src/layout.html and bump reviewCount there and in each page's
-     front-matter.
+     Shared by the home page, the proposal page and every occasion page.
+     To add one: copy a card, paste the real review verbatim into
+     .review-quote, then add it to the JSON-LD in src/layout.html and
+     bump reviewCount there and in each page's front-matter.
 
-     Newest first — recency is what a reader and Google both weigh.
-     The section is a horizontal rail, so more reviews cost no extra
-     page height; keep adding rather than retiring old ones.
+     .review-pull is the highlight line. It must be an unbroken phrase
+     copied from the review itself — trimmed at the ends, never spliced
+     or reworded. A one-line review is its own pull line and needs no
+     body.
+
+     .review-tag only where the review text itself names the occasion.
+     Don't infer one.
+
+     Newest first. The cards sit in a horizontal rail, so more reviews
+     cost no extra page height.
      ================================================================ -->
 <section class="testimonials section" id="reviews">
       <div class="container">
         <div class="section-head fade-in">
           <p class="eyebrow">From our clients</p>
           <h2 class="section-title">Kind words</h2>
-          <p class="section-intro">More than 30 happy clients across Sydney, and rated 5.0 on Google.</p>
+        </div>
+
+        <div class="reviews-layout">
+
+        <div class="reviews-summary fade-in">
+          <p class="reviews-score">5.0</p>
+          <p class="reviews-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="reviews-count">16 Google reviews</p>
+          <p class="reviews-clients">30+ happy clients</p>
         </div>
 
         <div class="review-rail">
@@ -25,159 +39,190 @@
         </button>
         <div class="review-grid" id="review-rail-track" tabindex="0" role="group" aria-label="Client reviews, scroll horizontally">
 
-        <figure class="review-card fade-in">
-          <img class="review-photo" src="rv-arpit.webp" alt="Rose petal heart lit with candles and illuminated MARRY ME letters, styled at home" loading="lazy">
-          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <figure class="review-card">
+          <p class="review-pull">Our peak Sydney memory now.</p>
           <blockquote class="review-quote">
             <p>Dipali is the best. I was in Sydney on vacation and had very few days to get my proposal planned. Dipali was very accomodating and flexible and got all the arrangements done in 2 days notice.</p>
             <p>It was perfect. My partner loved it and its our peak Sydney memory now &mdash; all thanks to Dipali and Team.</p>
           </blockquote>
           <button type="button" class="review-more" aria-expanded="false">Read more</button>
-          <figcaption class="review-meta"><span class="review-name">Arpit Dubey</span></figcaption>
+          <span class="review-tag">Proposal</span>
+          <figcaption class="review-meta">
+            <span class="review-monogram" aria-hidden="true">AD</span>
+            <span class="review-who"><span class="review-name">Arpit Dubey</span><span class="review-stars" role="img" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+          </figcaption>
         </figure>
 
-        <figure class="review-card fade-in delay-1">
-          <img class="review-photo" src="rv-taskin.webp" alt="Gold charger plate with a tasselled linen napkin on a woven placemat" loading="lazy">
-          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <figure class="review-card">
+          <p class="review-pull">Will listen to your needs and plan everything according to your preferences.</p>
           <blockquote class="review-quote">
             <p>They are professional and genuinely lovely people. Will listen to your needs and plan everything according to your preferences. Recommended if you&rsquo;re looking for the perfect team for your special day!</p>
           </blockquote>
           <button type="button" class="review-more" aria-expanded="false">Read more</button>
-          <figcaption class="review-meta"><span class="review-name">Taskin Muktasid</span></figcaption>
+          <figcaption class="review-meta">
+            <span class="review-monogram" aria-hidden="true">TM</span>
+            <span class="review-who"><span class="review-name">Taskin Muktasid</span><span class="review-stars" role="img" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+          </figcaption>
         </figure>
 
-        <figure class="review-card fade-in delay-2">
-          <img class="review-photo" src="rv-dan.webp" alt="Red roses on the sand in front of a floral heart arch, Sydney skyline across the water" loading="lazy">
-          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <figure class="review-card">
+          <p class="review-pull">Despite all kinds of weather and admin issues, she pulled through.</p>
           <blockquote class="review-quote">
             <p>I cannot speak highly enough of Dipali and her commitment to making the proposal a success. Despite all kinds of weather and admin issues, she pulled through. The set up was also beautiful.</p>
           </blockquote>
           <button type="button" class="review-more" aria-expanded="false">Read more</button>
-          <figcaption class="review-meta"><span class="review-name">Dan Mckeown</span></figcaption>
+          <span class="review-tag">Proposal</span>
+          <figcaption class="review-meta">
+            <span class="review-monogram" aria-hidden="true">DM</span>
+            <span class="review-who"><span class="review-name">Dan Mckeown</span><span class="review-stars" role="img" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+          </figcaption>
         </figure>
 
-        <figure class="review-card fade-in">
-          <img class="review-photo" src="rv-timothy.webp" alt="Candle and place setting on a low table in the last of the afternoon light" loading="lazy">
-          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <figure class="review-card">
+          <p class="review-pull">Well organised, quiet luxury.</p>
           <blockquote class="review-quote">
             <p>One of the most fantastic and memory making experiences ever. Well organised, quiet luxury, everything went so from planning to delivery. Thanks for making these memories for me!</p>
           </blockquote>
           <button type="button" class="review-more" aria-expanded="false">Read more</button>
-          <figcaption class="review-meta"><span class="review-name">Timothy Wong</span></figcaption>
+          <figcaption class="review-meta">
+            <span class="review-monogram" aria-hidden="true">TW</span>
+            <span class="review-who"><span class="review-name">Timothy Wong</span><span class="review-stars" role="img" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+          </figcaption>
         </figure>
 
-        <figure class="review-card fade-in delay-1">
-          <img class="review-photo" src="rv-mikhael.webp" alt="Long timber picnic table styled with blush florals and teal cushions on a lawn" loading="lazy">
-          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <figure class="review-card">
+          <p class="review-pull">Excellent value for money.</p>
           <blockquote class="review-quote">
             <p>I would highly recommend Harmony Moments to anyone looking to organise a special occasion or enjoy a beautiful picnic experience in Sydney. Dipali deserves special recognition for the care, creativity and attention to detail she brings to the experience.</p>
             <p>Another big positive is the pricing. You get a premium, beautifully presented experience without having to spend an unreasonable amount of money. The packages offer excellent value for money and make luxury-style celebrations much more affordable and accessible.</p>
             <p>Whether you&rsquo;re planning a romantic picnic, a birthday celebration, an anniversary or simply a special surprise, Harmony Moments offers a wonderful way to make the occasion memorable. Highly recommended!</p>
           </blockquote>
           <button type="button" class="review-more" aria-expanded="false">Read more</button>
-          <figcaption class="review-meta"><span class="review-name">Mikhael Marzouk</span></figcaption>
+          <figcaption class="review-meta">
+            <span class="review-monogram" aria-hidden="true">MM</span>
+            <span class="review-who"><span class="review-name">Mikhael Marzouk</span><span class="review-stars" role="img" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+          </figcaption>
         </figure>
 
-        <figure class="review-card fade-in delay-2">
-          <img class="review-photo" src="rv-chris.webp" alt="Blush ribbons, candlesticks and beaded placemats on a styled table" loading="lazy">
-          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <figure class="review-card">
+          <p class="review-pull">Her attention to detail really stood out.</p>
           <blockquote class="review-quote">
             <p>I had a wonderful experience with Harmony Moments. Dipali was incredibly warm, thoughtful and easy to deal with from start to finish. Her attention to detail really stood out and you can genuinely see the care and passion she puts into creating a memorable experience.</p>
             <p>Everything was beautifully organised and effortless. I would happily recommend Dipali and Harmony Moments to anyone looking to create something special.</p>
           </blockquote>
           <button type="button" class="review-more" aria-expanded="false">Read more</button>
-          <figcaption class="review-meta"><span class="review-name">Chris Gunn</span></figcaption>
+          <figcaption class="review-meta">
+            <span class="review-monogram" aria-hidden="true">CG</span>
+            <span class="review-who"><span class="review-name">Chris Gunn</span><span class="review-stars" role="img" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+          </figcaption>
         </figure>
 
-        <figure class="review-card fade-in">
-          <img class="review-photo" src="rv-astrid.webp" alt="Long low table styled on grass with pink and teal floor cushions" loading="lazy">
-          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <figure class="review-card">
+          <p class="review-pull">All the headache was taken care of.</p>
           <blockquote class="review-quote">
             <p>Harmony Moments is an amazing idea. I passed this onto an older friend of mine, who said she wished she had used this service before. All the headache was taken care of and she could enjoy the occasion while spending all her time with family and friends.</p>
             <p>Stylish artistic service and the location can be anywhere you choose!</p>
           </blockquote>
           <button type="button" class="review-more" aria-expanded="false">Read more</button>
-          <figcaption class="review-meta"><span class="review-name">Astrid Concessio-Dewan</span></figcaption>
+          <figcaption class="review-meta">
+            <span class="review-monogram" aria-hidden="true">AC</span>
+            <span class="review-who"><span class="review-name">Astrid Concessio-Dewan</span><span class="review-stars" role="img" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+          </figcaption>
         </figure>
 
-        <figure class="review-card fade-in delay-1">
-          <img class="review-photo" src="rv-ephratah.webp" alt="Riverside picnic table styled with candles and florals below a wooded hillside" loading="lazy">
-          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <figure class="review-card">
+          <p class="review-pull">Very professional and attentive to what we asked for.</p>
           <blockquote class="review-quote">
             <p>We were pleased to use Harmony Moments for our special occasion. They were very professional and attentive to what we asked for. Great service and staff and would highly recommend others to use them. Keep up the great work!</p>
           </blockquote>
           <button type="button" class="review-more" aria-expanded="false">Read more</button>
-          <figcaption class="review-meta"><span class="review-name">Ephratah Barton-Wright</span></figcaption>
+          <figcaption class="review-meta">
+            <span class="review-monogram" aria-hidden="true">EB</span>
+            <span class="review-who"><span class="review-name">Ephratah Barton-Wright</span><span class="review-stars" role="img" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+          </figcaption>
         </figure>
 
-        <figure class="review-card fade-in delay-2">
-          <img class="review-photo" src="rv-navu.webp" alt="Garden party table styled for a group with pastel florals and giant paper flowers" loading="lazy">
-          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote class="review-quote">
-            <p>Great service making the moment memorable.</p>
-          </blockquote>
-          <button type="button" class="review-more" aria-expanded="false">Read more</button>
-          <figcaption class="review-meta"><span class="review-name">Navu Saini</span></figcaption>
+        <figure class="review-card">
+          <p class="review-pull">Great service making the moment memorable.</p>
+          <figcaption class="review-meta">
+            <span class="review-monogram" aria-hidden="true">NS</span>
+            <span class="review-who"><span class="review-name">Navu Saini</span><span class="review-stars" role="img" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+          </figcaption>
         </figure>
 
-        <figure class="review-card fade-in">
-          <img class="review-photo" src="review-michelle.webp" alt="Vintage floral teacup, pink scalloped plates and gold cutlery on a styled table" loading="lazy">
-          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <figure class="review-card">
+          <p class="review-pull">The attention to detail was absolutely next level.</p>
           <blockquote class="review-quote">
             <p>We had the most amazing experience with Harmony Moments for a picnic set-up over the weekend, and I honestly couldn&rsquo;t recommend them highly enough! From start to finish, they were incredibly professional, organised and so lovely to deal with. The attention to detail was absolutely next level &mdash; every little element was beautifully thought through and perfectly styled.</p>
             <p>The whole set-up was even more beautiful than I imagined, and they truly went above and beyond to make everything feel so special. The team at Harmony Moments were amazing in every way, and I wouldn&rsquo;t hesitate to use them again.</p>
           </blockquote>
           <button type="button" class="review-more" aria-expanded="false">Read more</button>
-          <figcaption class="review-meta"><span class="review-name">Michelle Mikelsen</span></figcaption>
+          <figcaption class="review-meta">
+            <span class="review-monogram" aria-hidden="true">MM</span>
+            <span class="review-who"><span class="review-name">Michelle Mikelsen</span><span class="review-stars" role="img" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+          </figcaption>
         </figure>
 
-        <figure class="review-card fade-in delay-1">
-          <img class="review-photo" src="review-kit.webp" alt="Coral florals, candles and place settings on a low picnic table in a Sydney park" loading="lazy">
-          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <figure class="review-card">
+          <p class="review-pull">An exceptional Father&rsquo;s Day picnic surprise.</p>
           <blockquote class="review-quote">
             <p>Harmony Moments and my wonderful wife and children presented an exceptional Father&rsquo;s Day picnic surprise for me. Every aspect was taken care of. A truly memorable day. Very grateful to Dipali and her team at HM.</p>
           </blockquote>
           <button type="button" class="review-more" aria-expanded="false">Read more</button>
-          <figcaption class="review-meta"><span class="review-name">Kit Patel</span></figcaption>
+          <span class="review-tag">Father&rsquo;s Day</span>
+          <figcaption class="review-meta">
+            <span class="review-monogram" aria-hidden="true">KP</span>
+            <span class="review-who"><span class="review-name">Kit Patel</span><span class="review-stars" role="img" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+          </figcaption>
         </figure>
 
-        <figure class="review-card fade-in delay-2">
-          <img class="review-photo" src="rv-rachana.webp" alt="Bronze birdcage lantern with a lit candle resting on the grass beside a setup" loading="lazy">
-          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <figure class="review-card">
+          <p class="review-pull">We simply turned up, without having to worry about a thing.</p>
           <blockquote class="review-quote">
             <p>I recently engaged Harmony Moments to organise a surprise picnic for my husband and children, and it was such a delightful experience from start to finish. From planning, coordinating through to the day of set up and picnic, everything was seamless, professional and stress-free.</p>
             <p>The set up itself was beautiful and immaculate, with every little detail thoughtfully taken care of. We simply turned up, without having to worry about a thing and were able to relax and enjoy the most beautiful family time together.</p>
           </blockquote>
           <button type="button" class="review-more" aria-expanded="false">Read more</button>
-          <figcaption class="review-meta"><span class="review-name">Rachana Hegde</span></figcaption>
+          <span class="review-tag">Family surprise</span>
+          <figcaption class="review-meta">
+            <span class="review-monogram" aria-hidden="true">RH</span>
+            <span class="review-who"><span class="review-name">Rachana Hegde</span><span class="review-stars" role="img" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+          </figcaption>
         </figure>
 
-        <figure class="review-card fade-in">
-          <img class="review-photo" src="rv-rohan.webp" alt="Harbourside table styled on a lawn with the Sydney Opera House and Harbour Bridge behind" loading="lazy">
-          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <figure class="review-card">
+          <p class="review-pull">Even more beautiful than I had imagined.</p>
           <blockquote class="review-quote">
             <p>A big thank you to Dipali from Harmony Moments! The picnic setup was even more beautiful than I had imagined and honestly exceeded all my expectations. Every little detail was perfect and she made us feel so special throughout the whole experience.</p>
             <p>Everything was stress-free and I couldn&rsquo;t have asked for a better setup. Highly recommend Harmony Moments if you want a truly memorable celebration!</p>
           </blockquote>
           <button type="button" class="review-more" aria-expanded="false">Read more</button>
-          <figcaption class="review-meta"><span class="review-name">Rohan Mahajan</span></figcaption>
+          <figcaption class="review-meta">
+            <span class="review-monogram" aria-hidden="true">RM</span>
+            <span class="review-who"><span class="review-name">Rohan Mahajan</span><span class="review-stars" role="img" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+          </figcaption>
         </figure>
 
-        <figure class="review-card fade-in delay-1">
-          <img class="review-photo" src="rv-shallu.webp" alt="Lanterns and printed photographs laid out on the sand at a styled beach setup" loading="lazy">
-          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <figure class="review-card">
+          <p class="review-pull">The surprise was a huge success.</p>
           <blockquote class="review-quote">
             <p>I reached out to Dipali at Harmony Moments to help organise a surprise proposal picnic for my brother-in-law, and I couldn&rsquo;t be happier with the experience. From our very first conversation, Dipali was friendly, approachable, and quickly understood exactly what I had envisioned.</p>
             <p>Dipali is incredibly organised, responsive, and genuinely passionate about creating memorable experiences. The proposal setup was absolutely stunning and exceeded all our expectations. Thanks to her attention to detail, the surprise was a huge success.</p>
           </blockquote>
           <button type="button" class="review-more" aria-expanded="false">Read more</button>
-          <figcaption class="review-meta"><span class="review-name">Shallu Bali</span></figcaption>
+          <span class="review-tag">Proposal</span>
+          <figcaption class="review-meta">
+            <span class="review-monogram" aria-hidden="true">SB</span>
+            <span class="review-who"><span class="review-name">Shallu Bali</span><span class="review-stars" role="img" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+          </figcaption>
         </figure>
 
         </div>
         <button type="button" class="rail-nav rail-next" aria-label="More reviews" aria-controls="review-rail-track">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
         </button>
+        </div>
+
         </div>
       </div>
     </section>
